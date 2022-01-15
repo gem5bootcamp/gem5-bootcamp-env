@@ -24,7 +24,7 @@ It contains:
     * RISCV64 GNU cross-compiler found in `/opt/cross-compiler/riscv64-linux/`.
     * AARCH64 GNU cross-compiler found in `/opt/cross-compiler/aarch64-linux/`.
 
-## Beginners example
+## Beginners' example
 
 The following can be used within the Codespace container to run a basic gem5 simulation straight away:
 
