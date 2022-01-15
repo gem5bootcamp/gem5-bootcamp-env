@@ -1,4 +1,4 @@
-This directory contains the sources for the gcr.io/gem5-test/gem5-tutorial-env Docker image, which is used by the [.devcontainer/Dockerfile](/.devcontainer/Dockerfile) to build the Docker container used by Codespaces.
+This directory contains the sources for the gcr.io/gem5-test/gem5-tutorial-env Docker image which is used by [.devcontainer/Dockerfile](/.devcontainer/Dockerfile) to build the Docker container used by Codespaces.
 The gcr.io/gem5-test/gem5-tutorial-env Docker image contains:
 
 * All gem5 depenencies (inc. optional dependencies).
@@ -22,8 +22,8 @@ docker-compose build gem5-tutorial-env
 The gcr.io/gem5-test/gem5-tutorial-env Docker image is built from the [Dockerfile](Dockerfile) file.
 It depends on the following images, which are built if not available:
 
-* <gcr.io/gem5-test/gem5-builder> :
-This is build from [Dockerfile-builder](Dockerfile-builder).
+* gcr.io/gem5-test/gem5-builder :
+This is built from [Dockerfile-builder](Dockerfile-builder).
 It contains prebuilt gem5 binaries.
 It is not used directly as it contains the gem5 sources (therefore large).
 * gcr.io/gem5-test/gnu-cross-compiler-riscv64 :
@@ -36,5 +36,5 @@ It contains the AARCH64 GNU cross-compiler.
 
 ## Notes for gem5 developers
 
-These can be pushed with: `docker-compose push`.
+These images can be pushed with: `docker-compose push`.
 Permission must be granted to push to the Google Cloud repository before doing so.
