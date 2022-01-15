@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+    builder:
+        build:
+            context: .
+            dockerfile: Dockerfile-builder
+        image: gcr.io/gem5-test/gem5-builder:v21-2
+    gnu-cross-compiler-riscv64:
+        build:
+            context: gnu-cross-compilers
+            dockerfile: Dockerfile-riscv64
+        image: gcr.io/gem5-test/gnu-cross-compiler-riscv64
+    gnu-cross-compiler-aarch64:
+        build:
+            context: gnu-cross-compilers
+            dockerfile: Dockerfile-aarch64
+        image: gcr.io/gem5-test/gnu-cross-compiler-aarch64
+    gem5-tutorial-env:
+        build:
+           context: .
+           dockerfile: Dockerfile
+        image: gcr.io/gem5-test/gem5-tutorial-env:v21-2
+        depends_on:
+            - builder
+            - gnu-cross-compiler-riscv64
+            - gnu-cross-compiler-aarch64
