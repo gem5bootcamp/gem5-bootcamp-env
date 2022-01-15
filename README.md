@@ -29,7 +29,7 @@ It contains:
 The following can be used within the Codespace container to run a basic gem5 simulation straight away:
 
 ```
-gem5-arm gem5/configs/example/gem5_library/arm-hello.py`
+gem5-arm gem5/configs/example/gem5_library/arm-hello.py
 ```
 
 This will execute a "Hello world!" program inside a simulated ARM system.
