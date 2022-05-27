@@ -1,0 +1,2 @@
+# Ignore all m5out directories and build directories
+**/m5out/
