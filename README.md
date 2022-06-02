@@ -34,6 +34,24 @@ gem5-arm gem5/configs/example/gem5_library/arm-hello.py
 
 This will execute a "Hello world!" program inside a simulated ARM system.
 
-## How to deal with git modules
+## Updating submodules
 
-This needs to be explained.
+In this project we have two submodules: 'gem5' and 'gem5-resources'.
+These are automatically obtained when the codespaces is initialized.
+At the time of writing the 'gem5' directory is checked out to the stable branch at v21.2.1.1.
+The 'gem5-resources' repository is checkoued out to revision '871e715', which should contain resources with known compatibility with gem5 v21.2.
+
+To update the git submodules to be in-sync with their remote origins (that hosted on our [googlesource](https://gem5.googlesource.com)), execute the following command:
+
+```sh
+git submodule update --remote
+```
+
+This repository may be updated to these in-sync submodules by running the following (this assumes you have correct permissions to do so):
+
+```sh
+git add gem5 gem5-resources
+git commit -m "git submodules updated"
+git push
+```
+
