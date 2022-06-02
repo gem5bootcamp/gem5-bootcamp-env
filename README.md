@@ -55,3 +55,59 @@ git commit -m "git submodules updated"
 git push
 ```
 
+## Best practises
+
+### Using branches
+
+A good strategy when working with gem5 is to use branches.
+In the 'gem5' directory, you can use branches to segregate your development.
+A typical workflow would be as follows.
+
+1. Start from the stable branch.
+This will ensure you are starting from a clean, stable version of gem5.
+
+```sh
+git checkout stable
+```
+
+2. Create another branch to work on.
+Initially this branch will be idential to stable but with a name of your choosing.
+
+```sh
+git branch example-1 # Creating a new branch named 'example-1'.
+```
+
+3. Checkout this branch:
+
+```sh
+git checkout example-`
+```
+
+4. Make changes on this branch and commit the changes.
+For example:
+
+```sh
+echo "Create a test commit" >test.txt
+git add test.txt
+git commit -m "misc: Adding a test commit"
+```
+
+5. When done, or wishing to move onto something else, checkout stable.
+This effectively reverts the changes made on the branch.
+
+```sh
+git checkout stable
+```
+
+6. You may return to this branch whenever you want.
+
+```sh
+git checkout example-1
+```
+
+To see a list of all available branches you can execute:
+
+```sh
+git branch
+```
+
