@@ -33,3 +33,7 @@ gem5-arm gem5/configs/example/gem5_library/arm-hello.py
 ```
 
 This will execute a "Hello world!" program inside a simulated ARM system.
+
+## How to deal with git modules
+
+This needs to be explained.
