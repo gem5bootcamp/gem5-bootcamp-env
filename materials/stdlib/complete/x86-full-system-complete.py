@@ -1,7 +1,7 @@
 from gem5.utils.requires import requires
 from gem5.components.boards.x86_board import X86Board
 from gem5.components.memory.single_channel import SingleChannelDDR3_1600
-from gem5.components.cachehierarchies.ruby.mesi_two_level_cache_hierarchy import MESITwoLevelCacheHierarchy,
+from gem5.components.cachehierarchies.ruby.mesi_two_level_cache_hierarchy import MESITwoLevelCacheHierarchy
 from gem5.components.processors.simple_switchable_processor import SimpleSwitchableProcessor
 from gem5.coherence_protocol import CoherenceProtocol
 from gem5.isas import ISA
@@ -15,7 +15,6 @@ from gem5.simulate.exit_event import ExitEvent
 requires(
     isa_required=ISA.X86,
     coherence_protocol_required=CoherenceProtocol.MESI_TWO_LEVEL,
-    kvm_required=True,
 )
 
 # Here we setup a MESI Two Level Cache Hierarchy.
@@ -39,11 +38,11 @@ memory = SingleChannelDDR3_1600("2GiB")
 # a starting core type and a switch core type must be specified. Once a
 # configuration is instantiated a user may call `processor.switch()` to switch
 # from the starting core types to the switch core types. In this simulation
-# we start with KVM cores to simulate the OS boot, then switch to the Timing
+# we start with TIMING cores to simulate the OS boot, then switch to the O3
 # cores for the command we wish to run after boot.
 processor = SimpleSwitchableProcessor(
-    starting_core_type=CPUTypes.KVM,
-    switch_core_type=CPUTypes.TIMING,
+    starting_core_type=CPUTypes.TIMING,
+    switch_core_type=CPUTypes.O3,
     num_cores=2,
 )
 
