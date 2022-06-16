@@ -48,6 +48,7 @@ MyHelloObject::MyHelloObject(const Params &params) :
     // Grab the timesLeft parameter
 {
     // It's a good idea to have debugging!
+    DPRINTF(MyHelloExample, "Created the hello object\n");
 
     // Make sure to check that the user provides what you expect them to
 }

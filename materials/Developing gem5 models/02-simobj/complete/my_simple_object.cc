@@ -30,13 +30,16 @@
 
 #include <iostream>
 
+#include "debug/MyHelloExample.hh"
+
 namespace gem5
 {
 
 MySimpleObject::MySimpleObject(const Params &params) :
     SimObject(params)
 {
-    std::cout << "Hello World! From a SimObject!" << std::endl;
+    // std::cout << "Hello World! From a SimObject!" << std::endl;
+    DPRINTF(MyHelloExample, "Created the hello object\n");
 }
 
 } // namespace gem5

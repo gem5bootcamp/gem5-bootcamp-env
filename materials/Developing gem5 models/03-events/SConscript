@@ -36,4 +36,4 @@ SimObject('MyHelloObject.py', # sim_objects=[...]
 Source('my_hello_object.cc')
 Source('my_goodbye_object.cc')
 
-# You can add a debug flag here
+DebugFlag('MyHelloExample')

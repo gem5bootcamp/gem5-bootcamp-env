@@ -49,16 +49,16 @@ class MyHelloObject : public SimObject
     /// An event that wraps the above function
 
     /// Pointer to the corresponding GoodbyeObject. Set via Python
-    MyGoodbyeObject* goodbye;
+    MyGoodbyeObject* goodbye = nullptr;
 
     /// The name of this object in the Python config file
     const std::string myName;
 
     /// Latency between calling the event (in ticks)
-    const Tick latency;
+    const Tick latency = 1000;
 
     /// Number of times left to fire the event before goodbye
-    int timesLeft;
+    int timesLeft = 10;
 
   public:
     PARAMS(MyHelloObject);

@@ -33,3 +33,5 @@ Import('*')
 SimObject('MySimpleObject.py', sim_objects=['MySimpleObject'])
 
 Source('my_simple_object.cc')
+
+DebugFlag('MyHelloExample')
