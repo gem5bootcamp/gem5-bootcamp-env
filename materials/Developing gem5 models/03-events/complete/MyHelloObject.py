@@ -30,7 +30,7 @@ from m5.SimObject import SimObject
 
 class MyHelloObject(SimObject):
     type = 'MyHelloObject'
-    cxx_header = "tutorial/hello_object.hh"
+    cxx_header = "tutorial/my_hello_object.hh"
     cxx_class = 'gem5::MyHelloObject'
 
     time_to_wait = Param.Latency("Time before firing the event")
@@ -41,7 +41,7 @@ class MyHelloObject(SimObject):
 
 class MyGoodbyeObject(SimObject):
     type = 'MyGoodbyeObject'
-    cxx_header = "tutorial/goodbye_object.hh"
+    cxx_header = "tutorial/my_goodbye_object.hh"
     cxx_class = 'gem5::MyGoodbyeObject'
 
     buffer_size = Param.MemorySize('1kB',
