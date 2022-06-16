@@ -1,0 +1,3 @@
+title: "gem5 Bootcamp 2022"
+description: "gem5 Bootcamp Summer 2022 at UC Davis offered by the Davis Computer Architecture Research Group"
+modules: ["Introduction", "Using gem5", "Developing gem5 models", "Extra topics"]

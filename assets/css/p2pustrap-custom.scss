@@ -1,0 +1,40 @@
+---
+---
+@import "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css";
+@import "p2pu-theme/fonts";
+@import "p2pu-theme/variables";
+@import "bootstrap/scss/bootstrap";
+@import "p2pu-theme/mixins";
+@import "p2pu-theme/utilities";
+@import "p2pu-theme/layout";
+@import "p2pu-theme/typography";
+@import "p2pu-theme/buttons";
+@import "p2pu-theme/footer";
+@import "p2pu-theme/custom";
+
+{% if site.jumbotron_color %}
+	$jumbotron-color: {{ site.jumbotron_color }};
+{% else %}
+ $jumbotron-color: $p2pu-blue;
+{% endif %}
+
+{% if site.jumbotron_image %}
+	$jumbotron-image: '{{ site.jumbotron_image}}';
+{% else %}
+	$jumbotron-image: 'img/jumbotron-image.svg';
+{% endif %}
+
+{% assign image_ext = site.jumbotron_image|split:"."|last %}
+{% if image_ext == "svg" %}
+  $jumbotron-image-size: contain;
+{% else %}
+  $jumbotron-image-size: cover;
+{% endif %}
+
+{% if site.jumbotron_mask %}
+	$jumbotron-mask: '{{ site.jumbotron_mask}}';
+{% else %}
+	$jumbotron-mask: 'img/jumbotron_mask.svg';
+{% endif %}
+
+@import "custom";
