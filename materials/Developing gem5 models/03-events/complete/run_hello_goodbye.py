@@ -47,7 +47,7 @@ root.hello = MyHelloObject(
     time_to_wait = '1.5ns',
 )
 root.hello.number_of_fires = 7
-root.hello.goodbye_object = GoodbyeObject()
+root.hello.goodbye_object = MyGoodbyeObject(bandwidth="50KiB/s")
 
 # instantiate all of the objects we've created above
 m5.instantiate()

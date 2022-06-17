@@ -31,7 +31,7 @@
 
 #include <string>
 
-#include "tutorial/my_goodbye_object.hh"
+// #include "tutorial/my_goodbye_object.hh"
 #include "params/MyHelloObject.hh"
 #include "sim/sim_object.hh"
 
@@ -48,7 +48,7 @@ class MyHelloObject : public SimObject
     /// An event that wraps the above function
 
     /// Pointer to the corresponding GoodbyeObject. Set via Python
-    MyGoodbyeObject* goodbye = nullptr;
+    // MyGoodbyeObject* goodbye;
 
     /// The name of this object in the Python config file
     const std::string myName;
