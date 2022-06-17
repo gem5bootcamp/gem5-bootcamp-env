@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright (c) 2017 Jason Lowe-Power
 # All rights reserved.
 #
@@ -23,28 +22,36 @@
 # DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 # THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.f
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from m5.params import *
-from m5.SimObject import SimObject
+"""
+A simple run file that creates two SimObjects: HelloObject and GoodbyeObject
+and then runs the simulation. Using the debug "Hello" is informative.
 
-class MyHelloObject(SimObject):
-    type = 'MyHelloObject'
-    cxx_header = "tutorial/my_hello_object.hh"
-    cxx_class = 'gem5::MyHelloObject'
+IMPORTANT: If you modify this file, it's likely that the Learning gem5 book
+           also needs to be updated. For now, email Jason <power.jg@gmail.com>
 
-    time_to_wait = Param.Latency("Time before firing the event")
-    number_of_fires = Param.Int(1, "Number of times to fire the event before "
-                                   "goodbye")
+"""
 
-    goodbye_object = Param.MyGoodbyeObject("A goodbye object")
+# import the m5 (gem5) library created when gem5 is built
+import m5
 
-class MyGoodbyeObject(SimObject):
-    type = 'MyGoodbyeObject'
-    cxx_header = "tutorial/my_goodbye_object.hh"
-    cxx_class = 'gem5::MyGoodbyeObject'
+# import all of the SimObjects
+from m5.objects import *
 
-    buffer_size = Param.MemorySize('1kB',
-                                   "Size of buffer to fill with goodbye")
-    write_bandwidth = Param.MemoryBandwidth('100MiB/s', "Bandwidth to fill "
-                                            "the buffer")
+# set up the root SimObject and start the simulation
+root = Root(full_system=False)
+
+# Create an instantiation of the simobject you created
+root.hello = MyHelloObject(
+    time_to_wait = '1.5ns',
+)
+root.hello.number_of_fires = 7
+root.hello.goodbye_object = GoodbyeObject()
+
+# instantiate all of the objects we've created above
+m5.instantiate()
+
+print("Beginning simulation!")
+exit_event = m5.simulate()
+print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}")

@@ -44,7 +44,6 @@ class MyHelloObject : public SimObject
     /**
      * Example function to execute on an event trigger
      */
-    void processEvent();
 
     /// An event that wraps the above function
 
@@ -55,10 +54,10 @@ class MyHelloObject : public SimObject
     const std::string myName;
 
     /// Latency between calling the event (in ticks)
-    const Tick latency = 1000;
+    const Tick latency;
 
     /// Number of times left to fire the event before goodbye
-    int timesLeft = 10;
+    int timesLeft;
 
   public:
     PARAMS(MyHelloObject);

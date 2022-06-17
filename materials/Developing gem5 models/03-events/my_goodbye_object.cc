@@ -40,7 +40,7 @@ MyGoodbyeObject::MyGoodbyeObject(const Params &params) :
     bandwidth(params.write_bandwidth), bufferSize(params.buffer_size)
 {
     buffer = new char[bufferSize]();
-    DPRINTF(HelloExample, "Created the goodbye object\n");
+    DPRINTF(MyHelloExample, "Created the goodbye object\n");
 }
 
 MyGoodbyeObject::~MyGoodbyeObject()
@@ -51,7 +51,7 @@ MyGoodbyeObject::~MyGoodbyeObject()
 void
 MyGoodbyeObject::processEvent()
 {
-    DPRINTF(HelloExample, "Processing the event!\n");
+    DPRINTF(MyHelloExample, "Processing the event!\n");
 
     // Actually do the "work" of the event
     fillBuffer();
@@ -60,7 +60,7 @@ MyGoodbyeObject::processEvent()
 void
 MyGoodbyeObject::sayGoodbye(std::string other_name)
 {
-    DPRINTF(HelloExample, "Saying goodbye to %s\n", other_name);
+    DPRINTF(MyHelloExample, "Saying goodbye to %s\n", other_name);
 
     message = "Goodbye " + other_name + "!! ";
 
@@ -82,7 +82,7 @@ MyGoodbyeObject::fillBuffer()
         // Wait for the next copy for as long as it would have taken
 
     } else {
-        DPRINTF(HelloExample, "Goodbye done copying!\n");
+        DPRINTF(MyHelloExample, "Goodbye done copying!\n");
         // Exit the simulation when we're done.
         // Be sure to take into account the time for the last bytes
     }
