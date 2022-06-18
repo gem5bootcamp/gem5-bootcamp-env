@@ -1,9 +1,9 @@
-FROM gcr.io/gem5-test/ubuntu-20.04_all-dependencies:v21-2
+FROM gcr.io/gem5-test/ubuntu-20.04_all-dependencies:v22-0
 
 # Obtain the build gem5 binaries.
-COPY --from=gcr.io/gem5-test/gem5-builder:v21-2 /gem5/build/X86/gem5.fast /usr/local/bin/gem5-x86
-COPY --from=gcr.io/gem5-test/gem5-builder:v21-2 /gem5/build/ARM/gem5.fast /usr/local/bin/gem5-arm
-COPY --from=gcr.io/gem5-test/gem5-builder:v21-2 /gem5/build/RISCV/gem5.fast /usr/local/bin/gem5-riscv
+COPY --from=gcr.io/gem5-test/gem5-builder:v22-0 /gem5/build/X86/gem5.fast /usr/local/bin/gem5-x86
+COPY --from=gcr.io/gem5-test/gem5-builder:v22-0 /gem5/build/ARM/gem5.fast /usr/local/bin/gem5-arm
+COPY --from=gcr.io/gem5-test/gem5-builder:v22-0 /gem5/build/RISCV/gem5.fast /usr/local/bin/gem5-riscv
 
 # Obtain the cross compilers
 RUN mkdir /opt/cross-compiler
