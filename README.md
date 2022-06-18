@@ -6,9 +6,9 @@ The repository contains the following directories:
 * [docker](docker) :
 The source code for the Docker image used by [.devcontainer/Dockerfile](.devcontainer/Dockerfile) to create the Codespace Docker container.
 * gem5 :
-v21.2.1.1 of gem5.
+v22.0.0.0 of gem5.
 * gem5-resources :
-gem5-resources which may be used with v21.2 of gem5.
+gem5-resources which may be used with v22.0 of gem5.
 
 **Note:** 'gem5' and 'gem5-resources' are submodules though the [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json) file specifies that a `git module update --init --recursive` command is executed when the Codespace Docker container is created.
 
@@ -38,8 +38,8 @@ This will execute a "Hello world!" program inside a simulated ARM system.
 
 In this project we have two submodules: 'gem5' and 'gem5-resources'.
 These are automatically obtained when the codespaces is initialized.
-At the time of writing the 'gem5' directory is checked out to the stable branch at v21.2.1.1.
-The 'gem5-resources' repository is checkoued out to revision '871e715', which should contain resources with known compatibility with gem5 v21.2.
+At the time of writing the 'gem5' directory is checked out to the stable branch at v22.0.0.0.
+The 'gem5-resources' repository is checkoued out to revision '871e715', which should contain resources with known compatibility with gem5 v22.0.
 
 To update the git submodules to be in-sync with their remote origins (that hosted on our [googlesource](https://gem5.googlesource.com)), execute the following command:
 
@@ -110,4 +110,3 @@ To see a list of all available branches you can execute:
 ```sh
 git branch
 ```
-
