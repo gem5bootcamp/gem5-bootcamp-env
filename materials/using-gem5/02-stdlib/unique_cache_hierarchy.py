@@ -7,7 +7,7 @@ from m5.objects import Port
 class UniqueCacheHierarchy(AbstractClassicCacheHierarchy):
 
 
-    def __init__() -> None:
+    def __init__(self) -> None:
         AbstractClassicCacheHierarchy.__init__(self=self)
 
     def get_mem_side_port(self) -> Port:
