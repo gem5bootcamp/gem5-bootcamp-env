@@ -3,7 +3,7 @@ FROM gcr.io/gem5-test/ubuntu-20.04_all-dependencies:v22-0
 RUN apt -y update
 RUN apt -y install git
 
-RUN git clone -b v22.0.0.0 https://gem5.googlesource.com/public/gem5
+RUN git clone -b v22.0.0.1 https://gem5.googlesource.com/public/gem5
 
 WORKDIR /gem5
 
