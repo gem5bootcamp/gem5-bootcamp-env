@@ -38,3 +38,5 @@ It contains the AARCH64 GNU cross-compiler.
 
 These images can be pushed with: `docker-compose push`.
 Permission must be granted to push to the Google Cloud repository before doing so.
+
+The Dockerfile tags must be updated accordingly for each release of gem5.
