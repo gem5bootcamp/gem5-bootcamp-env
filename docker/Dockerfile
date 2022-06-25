@@ -13,3 +13,6 @@ ENV PATH="/opt/cross-compiler/aarch64-linux/bin:${PATH}"
 
 COPY --from=gcr.io/gem5-test/gnu-cross-compiler-riscv64 /opt/cross-compiler/riscv64-linux /opt/cross-compiler/riscv64-linux
 ENV PATH="/opt/cross-compiler/riscv64-linux/bin:${PATH}"
+
+# Install gdb
+RUN apt install -y gdb
