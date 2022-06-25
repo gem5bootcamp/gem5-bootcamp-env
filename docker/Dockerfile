@@ -16,3 +16,6 @@ ENV PATH="/opt/cross-compiler/riscv64-linux/bin:${PATH}"
 
 # Install gdb
 RUN apt install -y gdb
+
+# Install black
+RUN pip install black
