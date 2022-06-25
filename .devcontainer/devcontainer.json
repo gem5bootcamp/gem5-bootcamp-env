@@ -1,13 +1,11 @@
 {
     "hostRequirements": {
-        "cpus": 4,
+        "cpus": 16,
         "memory": "8gb",
         "storage": "32gb"
     },
     "build": { "dockerfile": "Dockerfile" },
-    "postCreateCommand" : [
-        "git", "submodule", "update", "--init", "--recursive"
-	],
+    "onCreateCommand" : "on_create.sh",
 	"extensions": [
 		"ms-vscode.cpptools",
 		"streetsidesoftware.code-spell-checker",
