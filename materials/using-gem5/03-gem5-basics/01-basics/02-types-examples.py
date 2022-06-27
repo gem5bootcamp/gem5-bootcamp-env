@@ -1,4 +1,3 @@
-#if __name__ == "__main__":
 if __name__ == "__m5_main__":
     a = 123 # int
     print("L1:", a)
