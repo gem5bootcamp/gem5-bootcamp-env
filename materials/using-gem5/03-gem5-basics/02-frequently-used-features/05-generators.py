@@ -4,7 +4,8 @@ def Fibonacci_1():
     fib = [1, 1]
     for i in range(8):
         fib.append(fib[-1] + fib[-2])
-    return fib # return all values at once
+    return fib  # return all values at once
+
 
 def Fibonacci_generator():
     a = 1
@@ -13,8 +14,9 @@ def Fibonacci_generator():
         if count < 2:
             yield 1
         else:
-            a, b = b, a+b
+            a, b = b, a + b
             yield b
+
 
 if __name__ == "__m5_main__":
     generator_1 = Fibonacci_generator()

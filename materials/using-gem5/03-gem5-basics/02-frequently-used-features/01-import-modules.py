@@ -1,9 +1,11 @@
 # importing a python library
 import math
+
 print(math.log2(128))
 
 # import part of a library
 from math import log2
+
 print(log2(256))
 
 # import a local file as a module

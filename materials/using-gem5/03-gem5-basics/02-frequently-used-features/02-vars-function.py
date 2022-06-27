@@ -11,7 +11,9 @@ if __name__ == "__m5_main__":
     print()
 
     print("***** Multi-core Processor")
-    multi_core_processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.RISCV, num_cores=4)
+    multi_core_processor = SimpleProcessor(
+        cpu_type=CPUTypes.TIMING, isa=ISA.RISCV, num_cores=4
+    )
     print(multi_core_processor)
     pprint(vars(multi_core_processor))
     print()

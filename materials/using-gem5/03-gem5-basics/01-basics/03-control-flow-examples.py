@@ -2,7 +2,7 @@ if __name__ == "__m5_main__":
     # for loop
     print("for loop")
     for i in range(5):
-        print('i =', i)
+        print("i =", i)
     print()
 
     # using for loop to traverse a list with index
