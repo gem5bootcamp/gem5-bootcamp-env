@@ -29,6 +29,10 @@ prose:
     - /assets/js
     - /assets/css
 
+exclude:
+  - /gem5
+  - /gem5-resources
+
 # Set some personal styles and logo for your course
 # this is a hex value http://www.w3schools.com/tags/ref_colorpicker.asp
 jumbotron_color: "#b5b3aa"
