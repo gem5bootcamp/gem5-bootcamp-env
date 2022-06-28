@@ -75,7 +75,7 @@ class UniqueCacheHierarchy(AbstractClassicCacheHierarchy):
             data_latency=50,
             response_latency=50,
             mshrs=20,
-            size="1kB",
+            size="1KiB",
             tgts_per_mshr=12,
             addr_ranges=board.mem_ranges,
         )
