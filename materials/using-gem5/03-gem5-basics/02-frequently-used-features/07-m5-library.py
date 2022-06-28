@@ -93,8 +93,8 @@ board.set_se_binary_workload(
 # Lastly we run the simulation.
 root = Root(full_system=False, system=board)
 m5.instantiate()
-#exit_event = m5.simulate() # m5.simulate() without a parameter will run the simulation until the end
-exit_event = m5.simulate(10**7) # simulate the first 10 million ticks
+# exit_event = m5.simulate() # m5.simulate() without a parameter will run the simulation until the end
+exit_event = m5.simulate(10**7)  # simulate the first 10 million ticks
 
 print(
     "Exiting @ tick {} because {}.".format(
@@ -104,10 +104,10 @@ print(
 )
 print()
 
-m5.stats.dump() # output stats
-m5.stats.reset() # reset the stats
+m5.stats.dump()  # output stats
+m5.stats.reset()  # reset the stats
 
-exit_event = m5.simulate() # simulate until the end of the simulation
+exit_event = m5.simulate()  # simulate until the end of the simulation
 print(
     "Exiting @ tick {} because {}.".format(
         m5.curTick(),
