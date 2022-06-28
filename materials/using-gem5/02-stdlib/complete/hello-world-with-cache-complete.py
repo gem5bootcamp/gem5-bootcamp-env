@@ -10,7 +10,7 @@ from gem5.simulate.simulator import Simulator
 
 # Obtain the components.
 #cache_hierarchy = NoCache()
-cache_hierarchy = PrivateL1CacheHierarchy(l1d_size="32kB", l1i_size="32kb")
+cache_hierarchy = PrivateL1CacheHierarchy(l1d_size="32KiB", l1i_size="32KiB")
 memory = SingleChannelDDR3_1600("1GiB")
 processor = SimpleProcessor(cpu_type=CPUTypes.ATOMIC, num_cores=1)
 

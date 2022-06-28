@@ -23,14 +23,14 @@ cache_hierarchy = MESITwoLevelCacheHierarchy(
     l1d_assoc=8,
     l1i_size="32KiB",
     l1i_assoc=8,
-    l2_size="256kB",
+    l2_size="256KiB",
     l2_assoc=16,
     num_l2_banks=1,
 )
 
 # Setup the system memory.
 # Note, by default DDR3_1600 defaults to a size of 8GiB. However, a current
-# limitation with the X86 board is it can only accept memory systems up to 3GB.
+# limitation with the X86 board is it can only accept memory systems up to 3GiB.
 # As such, we must fix the size.
 memory = SingleChannelDDR3_1600("2GiB")
 
