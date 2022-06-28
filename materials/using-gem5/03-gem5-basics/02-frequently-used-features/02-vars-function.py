@@ -5,14 +5,14 @@ from gem5.isas import ISA
 
 if __name__ == "__m5_main__":
     print("***** Single-core Processor")
-    processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.RISCV, num_cores=1)
+    processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1)
     print(processor)
     pprint(vars(processor))
     print()
 
     print("***** Multi-core Processor")
     multi_core_processor = SimpleProcessor(
-        cpu_type=CPUTypes.TIMING, isa=ISA.RISCV, num_cores=4
+        cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=4
     )
     print(multi_core_processor)
     pprint(vars(multi_core_processor))

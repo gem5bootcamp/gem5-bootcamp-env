@@ -1,3 +1,4 @@
+from pprint import pprint
 from gem5.components.processors.simple_processor import (
     SimpleProcessor,
     AbstractProcessor,
@@ -14,14 +15,14 @@ class SimpleProcessorWithID(SimpleProcessor):
 
 
 if __name__ == "__m5_main__":
-    processor_1 = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.RISCV, num_cores=1)
+    processor_1 = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1)
     print("Processor_1")
-    print(vars(processor_1))
+    pprint(vars(processor_1))
     print()
 
     processor_2 = SimpleProcessorWithID(
-        processor_id=1, cpu_type=CPUTypes.TIMING, isa=ISA.RISCV, num_cores=1
+        processor_id=1, cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1
     )
     print("Processor_2")
-    print(vars(processor_2))
+    pprint(vars(processor_2))
     print()

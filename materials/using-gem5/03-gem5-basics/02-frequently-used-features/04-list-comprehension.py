@@ -8,12 +8,12 @@ if __name__ == "__m5_main__":
 
     print("Example 1")
     x = [k for k in range(10)]  # typical list comprehension
-    print("x =", x)
+    print(f"x = {x}")
     print()
 
     print("Example 2")
     processors = [
-        SimpleProcessor(cpu_type=cpu, isa=ISA.RISCV, num_cores=1)
+        SimpleProcessor(cpu_type=cpu, isa=ISA.X86, num_cores=1)
         for cpu in [CPUTypes.ATOMIC, CPUTypes.TIMING, CPUTypes.O3]
     ]
     print("- Processor list:")
@@ -29,7 +29,7 @@ if __name__ == "__m5_main__":
         "Example 3"
     )  # we can use a similar syntax for constructing a dictionary or a set
     multi_core_processors = {
-        cores: SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.RISCV, num_cores=cores)
+        cores: SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=cores)
         for cores in [1, 2, 4]
     }
     print("- Processor list:")
