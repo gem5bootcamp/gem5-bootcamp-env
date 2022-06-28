@@ -96,21 +96,11 @@ m5.instantiate()
 # exit_event = m5.simulate() # m5.simulate() without a parameter will run the simulation until the end
 exit_event = m5.simulate(10**7)  # simulate the first 10 million ticks
 
-print(
-    "Exiting @ tick {} because {}.".format(
-        m5.curTick(),
-        exit_event.getCause(),
-    )
-)
+print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
 print()
 
 m5.stats.dump()  # output stats
 m5.stats.reset()  # reset the stats
 
 exit_event = m5.simulate()  # simulate until the end of the simulation
-print(
-    "Exiting @ tick {} because {}.".format(
-        m5.curTick(),
-        exit_event.getCause(),
-    )
-)
+print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
