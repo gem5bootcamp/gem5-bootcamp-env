@@ -94,7 +94,9 @@ if __name__ == "__m5_main__":
     # Lastly we run the simulation.
     root = Root(full_system=False, system=board)
     m5.instantiate()
-    exit_event = m5.simulate() # m5.simulate() without a parameter will run the simulation until the end
+    exit_event = (
+        m5.simulate()
+    )  # m5.simulate() without a parameter will run the simulation until the end
 
     print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
     print()

@@ -14,4 +14,3 @@ if __name__ == "__main__":
     plot_2 = sns.barplot(x=x, y=y)
     fig = plot_2.get_figure()
     fig.savefig("example_plot_2.png")
-
