@@ -67,7 +67,7 @@ memory = SingleChannelDDR3_1600(size="32MB")
 # We use a simple Timing processor with one core.
 processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1)
 
-# The gem5 library simble board which can be used to run simple SE-mode
+# The gem5 library simple board which can be used to run simple SE-mode
 # simulations.
 board = SimpleBoard(
     clk_freq="3GHz",

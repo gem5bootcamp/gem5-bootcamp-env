@@ -5,7 +5,9 @@ from gem5.isas import ISA
 
 if __name__ == "__m5_main__":
     print("***** Single-core Processor")
-    processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1)
+    processor = SimpleProcessor(
+       cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1
+    )
     print(processor)
     pprint(vars(processor))
     print()
