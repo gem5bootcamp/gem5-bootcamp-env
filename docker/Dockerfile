@@ -19,3 +19,12 @@ RUN apt install -y gdb
 
 # Install black
 RUN pip install black
+
+# install pandas lib
+RUN pip install pandas
+
+# install matplot lib 
+RUN pip install matplotlib
+
+#install numpy lib 
+RUN pip install numpy
