@@ -7,4 +7,11 @@ if __name__ == "__main__":
 
     plot_1 = sns.barplot(x=x, y=y)
     fig = plot_1.get_figure()
-    fig.savefig("example_plot.png")
+    fig.savefig("example_plot_1.png")
+
+    x = ["A", "B", "C"]
+    y = [0.1, 0.2, 0.5]
+    plot_2 = sns.barplot(x=x, y=y)
+    fig = plot_2.get_figure()
+    fig.savefig("example_plot_2.png")
+

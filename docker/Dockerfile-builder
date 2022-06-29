@@ -11,3 +11,7 @@ WORKDIR /gem5
 RUN scons -j`nproc` build/X86/gem5.fast CPU_MODELS=AtomicSimpleCPU,TimingSimpleCPU,O3CPU,MinorCPU
 RUN scons -j`nproc` build/ARM/gem5.fast CPU_MODELS=AtomicSimpleCPU,TimingSimpleCPU,O3CPU,MinorCPU
 RUN scons -j`nproc` build/RISCV/gem5.fast CPU_MODELS=AtomicSimpleCPU,TimingSimpleCPU,O3CPU,MinorCPU
+
+# Install Python library dependencies
+RUN apt -y install python3-pip
+RUN pip3 install seaborn

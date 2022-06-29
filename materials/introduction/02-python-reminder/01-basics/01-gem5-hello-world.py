@@ -36,8 +36,7 @@ Usage
 -----
 
 ```
-scons build/X86/gem5.opt
-./build/X86/gem5.opt 07-m5-library.py
+gem5-x86 01-gem5-hello-world.py
 ```
 """
 
@@ -54,53 +53,48 @@ from gem5.components.cachehierarchies.classic.no_cache import NoCache
 from gem5.components.processors.simple_processor import SimpleProcessor
 from gem5.simulate.simulator import Simulator
 
-# This check ensures the gem5 binary is compiled to the X86 ISA target. If not,
-# an exception will be thrown.
-requires(isa_required=ISA.X86)
+if __name__ == "__m5_main__":
 
-# In this setup we don't have a cache. `NoCache` can be used for such setups.
-cache_hierarchy = NoCache()
+    # This check ensures the gem5 binary is compiled to the X86 ISA target. If not,
+    # an exception will be thrown.
+    requires(isa_required=ISA.X86)
 
-# We use a single channel DDR3_1600 memory system
-memory = SingleChannelDDR3_1600(size="32MB")
+    # In this setup we don't have a cache. `NoCache` can be used for such setups.
+    cache_hierarchy = NoCache()
 
-# We use a simple Timing processor with one core.
-processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1)
+    # We use a single channel DDR3_1600 memory system
+    memory = SingleChannelDDR3_1600(size="32MB")
 
-# The gem5 library simple board which can be used to run simple SE-mode
-# simulations.
-board = SimpleBoard(
-    clk_freq="3GHz",
-    processor=processor,
-    memory=memory,
-    cache_hierarchy=cache_hierarchy,
-)
+    # We use a simple Timing processor with one core.
+    processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1)
 
-# Here we set the workload. In this case we want to run a simple "Hello World!"
-# program compiled to the X86 ISA. The `Resource` class will automatically
-# download the binary from the gem5 Resources cloud bucket if it's not already
-# present.
-board.set_se_binary_workload(
-    # The `Resource` class reads the `resources.json` file from the gem5
-    # resources repository:
-    # https://gem5.googlesource.com/public/gem5-resource.
-    # Any resource specified in this file will be automatically retrieved.
-    # At the time of writing, this file is a WIP and does not contain all
-    # resources. Jira ticket: https://gem5.atlassian.net/browse/GEM5-1096
-    Resource("x86-hello64-static")
-)
+    # The gem5 library simple board which can be used to run simple SE-mode
+    # simulations.
+    board = SimpleBoard(
+        clk_freq="3GHz",
+        processor=processor,
+        memory=memory,
+        cache_hierarchy=cache_hierarchy,
+    )
 
-# Lastly we run the simulation.
-root = Root(full_system=False, system=board)
-m5.instantiate()
-# exit_event = m5.simulate() # m5.simulate() without a parameter will run the simulation until the end
-exit_event = m5.simulate(10**7)  # simulate the first 10 million ticks
+    # Here we set the workload. In this case we want to run a simple "Hello World!"
+    # program compiled to the X86 ISA. The `Resource` class will automatically
+    # download the binary from the gem5 Resources cloud bucket if it's not already
+    # present.
+    board.set_se_binary_workload(
+        # The `Resource` class reads the `resources.json` file from the gem5
+        # resources repository:
+        # https://gem5.googlesource.com/public/gem5-resource.
+        # Any resource specified in this file will be automatically retrieved.
+        # At the time of writing, this file is a WIP and does not contain all
+        # resources. Jira ticket: https://gem5.atlassian.net/browse/GEM5-1096
+        Resource("x86-hello64-static")
+    )
 
-print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
-print()
+    # Lastly we run the simulation.
+    root = Root(full_system=False, system=board)
+    m5.instantiate()
+    exit_event = m5.simulate() # m5.simulate() without a parameter will run the simulation until the end
 
-m5.stats.dump()  # output stats
-m5.stats.reset()  # reset the stats
-
-exit_event = m5.simulate()  # simulate until the end of the simulation
-print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
+    print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
+    print()
