@@ -11,37 +11,37 @@ args = argparse.ArgumentParser()
 args.add_argument(
     "mem_dev_type",
     type = str,
-    help = "type of memory device, DDR3, NVM, etc."
+    help = "type of memory device, ex: DDR3, NVM, etc."
 )
 
 args.add_argument(
     "mem_dev_size",
     type = str,
-    help = "Size of the memory."
+    help = "Size of the memory, ex: 512MiB, 4GB"
 )
 
 args.add_argument(
     "traffic_mode",
     type = str,
-    help = "Traffic type to use"
+    help = "Traffic type to use, linear, random"
 )
 
 args.add_argument(
     "duration",
     type = int,
-    help = "Duration of simulation"
+    help = "Duration of simulation in #ticks, 10000000 = 10ms"
 )
 
 args.add_argument(
     "inj_period",
     type = int,
-    help = "Period to inject reqs"
+    help = "Period to inject reqs (ticks), ex: 1000"
 )
 
 args.add_argument(
     "rd_prct",
     type=int,
-    help="Read Percentage",
+    help="Read Percentage, the rest will be writes, ex: 70",
 )
 
 options = args.parse_args()
@@ -65,7 +65,7 @@ system.generator.port = system.mem_ctrl.port
 def createRandomTraffic(tgen):
     yield tgen.createRandom(options.duration,                    # duration
                             0,                                   # min_addr
-                            AddrRange(options.mem_dev_size).end,  # max_adr
+                            AddrRange(options.mem_dev_size).end, # max_adr
                             64,                                  # block_size
                             options.inj_period,                  # min_period
                             options.inj_period,                  # max_period
@@ -76,7 +76,7 @@ def createRandomTraffic(tgen):
 def createLinearTraffic(tgen):
     yield tgen.createLinear(options.duration,                    # duration
                             0,                                   # min_addr
-                            AddrRange(options.mem_dev_size).end,  # max_adr
+                            AddrRange(options.mem_dev_size).end, # max_adr
                             64,                                  # block_size
                             options.inj_period,                  # min_period
                             options.inj_period,                  # max_period
