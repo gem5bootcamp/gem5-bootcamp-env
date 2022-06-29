@@ -4,20 +4,23 @@ def print_hello():
 
 def function_1(input_list):
     n = len(input_list)
+    # since parameters are passed by reference, the original list is also updated
     for i in range(n):
-        input_list[i] = (
-            2 * input_list[i]
-        )  # since parameters are passed by reference, the original list is also updated
+        input_list[i] = 2 * input_list[i]
 
 
 def function_2(input_list):
-    new_list = input_list[
-        :
-    ]  # making a copy of input_list and assigning the new list to new_list
+    # making a copy of input_list and assigning the new list to new_list
+    new_list = input_list[:]
+    # modifying the new list
     n = len(new_list)
     for i in range(n):
         new_list[i] = 10000 * new_list[i]
     return new_list
+
+
+def function_3(input_list, another_function):
+    return another_function(input_list)
 
 
 if __name__ == "__m5_main__":
@@ -45,3 +48,9 @@ if __name__ == "__m5_main__":
     print("Input after applying function_2():", input2)
     print("Output 2:", output2)
     print()
+
+    # Function in python is .. object, which means you can move it around or pass it to another function
+    input3 = [7, 8, 9]
+    fx = function_2
+    output3 = function_3(input3, fx)
+    print("Output 3 :", output3)
