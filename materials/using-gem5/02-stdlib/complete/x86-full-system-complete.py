@@ -55,13 +55,13 @@ board = X86Board(
 )
 
 # This is the command to run after the system has booted. The first `m5 exit`
-# will stop the simulation so we can switch the CPU cores from KVM to timing
+# will stop the simulation so we can switch the CPU cores from TIMING to O3d
 # and continue the simulation to run the echo command, sleep for a second,
 # then, again, call `m5 exit` to terminate the simulation. After simulation
 # has ended you may inspect `m5out/system.pc.com_1.device` to see the echo
 # output.
 command = "m5 exit;" \
-        + "echo 'This is running on Timing CPU cores.';" \
+        + "echo 'This is running on O3 CPU cores.';" \
         + "sleep 1;" \
         + "m5 exit;"
 
