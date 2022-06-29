@@ -1,6 +1,8 @@
+import time
+
 # generate the first N elements of the Fibonacci sequence
 #   fib[k] = fib[k-1] + fib[k-2]
-def Fibonacci_1(N):
+def Fibonacci_list(N):
     fib = [1, 1]
     for i in range(N - 2):
         fib.append(fib[-1] + fib[-2])
@@ -28,7 +30,31 @@ if __name__ == "__m5_main__":
         print(element)
     print("Done")
 
-    generator_2 = Fibonacci_generator(10)
-    print("Casting a generator to a list")
-    fib_list = list(generator_2)
-    print(fib_list)
+    print("Calculating the sum of 10**5 Fibonacci numbers using generator")
+    start = time.time()
+    fib_generator = Fibonacci_generator(10**5)
+    fib_sum = sum(fib_generator)
+    end = time.time()
+    print(f"Elapsed time: {end-start}s")
+
+    print("Calculating the sum of 10**5 Fibonacci numbers using list")
+    start = time.time()
+    fib_list = Fibonacci_list(10**5)
+    fib_sum = sum(fib_list)
+    end = time.time()
+    print(f"Elapsed time: {end-start}s")
+
+    print("Calculating the sum of 10**6 Fibonacci numbers using generator")
+    start = time.time()
+    fib_generator = Fibonacci_generator(10**6)
+    fib_sum = sum(fib_generator)
+    end = time.time()
+    print(f"Elapsed time: {end-start}s")
+
+    # This code will consume more than 25GiB of RAM.
+    # print("Calculating the sum of 10**6 Fibonacci numbers using list")
+    # start = time.time()
+    # fib_list = Fibonacci_list(10**6)
+    # fib_sum = sum(fib_list)
+    # end = time.time()
+    # print(f"Elapsed time: {end-start}s")

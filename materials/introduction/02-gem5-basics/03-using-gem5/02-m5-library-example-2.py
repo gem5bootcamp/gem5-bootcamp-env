@@ -71,7 +71,7 @@ if __name__ == "__m5_main__":
     # Using the m5 library to drive the simulation
     root = Root(full_system=False, system=board)
     m5.instantiate()
-    exit_event = m5.simulate(10**7) # simulate the first 10 million ticks
+    exit_event = m5.simulate(10**7)  # simulate the first 10 million ticks
     print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
     print()
     m5.stats.dump()  # output stats
