@@ -26,62 +26,48 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __LEARNING_GEM5_GOODBYE_OBJECT_HH__
-#define __LEARNING_GEM5_GOODBYE_OBJECT_HH__
-
-#include <string>
-
-#include "params/GoodbyeObject.hh"
-#include "sim/sim_object.hh"
+#ifndef __BOOTCAMP_SIMPLE_MEM_OBJECT_SIMPLE_MEM_OBJECT_HH__
+#define __BOOTCAMP_SIMPLE_MEM_OBJECT_SIMPLE_MEM_OBJECT_HH__
 
 namespace gem5
 {
 
-class GoodbyeObject : public SimObject
+#include "mem/port.hh"
+#include "params/SimpleMemObject.hh"
+#include "sim/sim_object.hh"
+
+class SimpleMemObject : public SimObject
 {
   private:
-    /**
-     * Fill the buffer with the next chunk of data
-     */
-    void processEvent();
+    class CPUSidePort : public ResponsePort
+    {
+      private:
+        SimpleMemObject* owner;
 
-    /// An event that wraps the above function
-    EventFunctionWrapper event;
+      public:
+        CPUSidePort(const std::string& name, SimpleMemObject* owner):
+            RequestPort(name, owner), owner(owner)
+        {}
+        AddrRangeList getAddrRanges() const override;
 
-    /**
-     * Fills the buffer for one iteration. If the buffer isn't full, this
-     * function will enqueue another event to continue filling.
-     */
-    void fillBuffer();
+      protected:
+        Tick recvAtomic(PacketPtr pkt) override { panic("recvAtomic unimpl.")}
+        void recvFunctional(PacketPtr pkt) override;
+        bool recvTimingReq(PacketPtr pkt) override;
+        void recvRespRetry() override;
+    }
 
-    /// The bytes processed per tick
-    float bandwidth;
-
-    /// The size of the buffer we are going to fill
-    int bufferSize;
-
-    /// The buffer we are putting our message in
-    char *buffer;
-
-    /// The message to put into the buffer.
-    std::string message;
-
-    /// The amount of the buffer we've used so far.
-    int bufferUsed;
+    class MemSidePort : public RequestPort
+    {
+      private:
+        SimpleMemObject* owner;
+    }
 
   public:
-    GoodbyeObject(const GoodbyeObjectParams &p);
-    ~GoodbyeObject();
-
-    /**
-     * Called by an outside object. Starts off the events to fill the buffer
-     * with a goodbye message.
-     *
-     * @param name the name of the object we are saying goodbye to.
-     */
-    void sayGoodbye(std::string name);
-};
+    PARAMS(SimpleMemObject);
+    SimpleMemObject(const Params& params);
+}
 
 } // namespace gem5
 
-#endif // __LEARNING_GEM5_GOODBYE_OBJECT_HH__
+#endif // __BOOTCAMP_SIMPLE_MEM_OBJECT_SIMPLE_MEM_OBJECT_HH__

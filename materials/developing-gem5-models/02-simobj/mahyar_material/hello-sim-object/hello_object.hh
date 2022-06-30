@@ -26,18 +26,23 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// FIXME: Ask Jason where in the gem5 directory these codes will go?
-#include "learning_gem5/part2/hello_object.hh"
+#ifndef __BOOTCAMP_HELLO_SIM_OBJECT_HELLO_OBJECT_HH__
+#define __BOOTCAMP_HELLO_SIM_OBJECT_HELLO_OBJECT_HH__
 
-#include <iostream>
+#include "params/HelloObject.hh"
+#include "sim/sim_object.hh"
 
 namespace gem5
 {
 
-HelloObject::HelloObject(const Params &params):
-    SimObject(params),
+class HelloObject : public SimObject
 {
-    std::cout << "Hello World! From a SimObject (constructor)." << std::endl;
-}
+  public:
+    PARAMS(HelloObject);
+    HelloObject(const Params& params);
+
+};
 
 } // namespace gem5
+
+#endif // __BOOTCAMP_HELLO_SIM_OBJECT_HELLO_OBJECT_HH__

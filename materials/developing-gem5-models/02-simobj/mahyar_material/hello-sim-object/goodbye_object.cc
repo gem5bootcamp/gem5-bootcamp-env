@@ -26,7 +26,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "learning_gem5/part2/goodbye_object.hh"
+#include "bootcamp/hello-sim-object/goodbye_object.hh"
 
 #include "base/trace.hh"
 #include "debug/HelloExample.hh"
