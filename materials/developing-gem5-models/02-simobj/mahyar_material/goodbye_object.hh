@@ -26,18 +26,62 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// FIXME: Ask Jason where in the gem5 directory these codes will go?
-#include "learning_gem5/part2/hello_object.hh"
+#ifndef __LEARNING_GEM5_GOODBYE_OBJECT_HH__
+#define __LEARNING_GEM5_GOODBYE_OBJECT_HH__
 
-#include <iostream>
+#include <string>
+
+#include "params/GoodbyeObject.hh"
+#include "sim/sim_object.hh"
 
 namespace gem5
 {
 
-HelloObject::HelloObject(const Params &params):
-    SimObject(params),
+class GoodbyeObject : public SimObject
 {
-    std::cout << "Hello World! From a SimObject (constructor)." << std::endl;
-}
+  private:
+    /**
+     * Fill the buffer with the next chunk of data
+     */
+    void processEvent();
+
+    /// An event that wraps the above function
+    EventFunctionWrapper event;
+
+    /**
+     * Fills the buffer for one iteration. If the buffer isn't full, this
+     * function will enqueue another event to continue filling.
+     */
+    void fillBuffer();
+
+    /// The bytes processed per tick
+    float bandwidth;
+
+    /// The size of the buffer we are going to fill
+    int bufferSize;
+
+    /// The buffer we are putting our message in
+    char *buffer;
+
+    /// The message to put into the buffer.
+    std::string message;
+
+    /// The amount of the buffer we've used so far.
+    int bufferUsed;
+
+  public:
+    GoodbyeObject(const GoodbyeObjectParams &p);
+    ~GoodbyeObject();
+
+    /**
+     * Called by an outside object. Starts off the events to fill the buffer
+     * with a goodbye message.
+     *
+     * @param name the name of the object we are saying goodbye to.
+     */
+    void sayGoodbye(std::string name);
+};
 
 } // namespace gem5
+
+#endif // __LEARNING_GEM5_GOODBYE_OBJECT_HH__

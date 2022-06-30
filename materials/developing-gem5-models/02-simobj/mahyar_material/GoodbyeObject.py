@@ -25,15 +25,15 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import m5
-from m5.objects import *
+from m5.params import *
+from m5.SimObject import SimObject
 
-root = Root(full_system=False)
+class GoodbyeObject(SimObject):
+    type = 'GoodbyeObject'
+    cxx_header = "learning_gem5/part2/goodbye_object.hh"
+    cxx_class = 'gem5::GoodbyeObject'
 
-root.hello = HelloObject()
-
-m5.instantiate()
-
-print("Beginning Simulation")
-exit_event = m5.simulate()
-print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}")
+    buffer_size = Param.MemorySize('1kB',
+                                   "Size of buffer to fill with goodbye")
+    write_bandwidth = Param.MemoryBandwidth('100MB/s', "Bandwidth to fill "
+                                            "the buffer")
