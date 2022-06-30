@@ -8,6 +8,13 @@ layout: base
 		<div class="col-xl-6 col-md-9">
 			<div class="content p-md-2">
 				<h1> {{ page.title }} </h1>
+				{% if page.embed_link == null %} <div> </div>
+				{% else %} <iframe src="{{ page.embed_link }}" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+				{% endif %}
+				{% if page.slides_link == null %} <div> </div>
+				{% else %} <div> <span> Download the slides </span> <a href="{{ page.slides_link }}"> here </a> <span>.</span> <p></p> 
+				</div>
+				{% endif %}
 				{{ content }}
 				{% if page.discussion %} {% include prompt.html content="<p>General discussion</p>" %} {% endif %}
 				{% include next_in_module.html %}
