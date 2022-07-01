@@ -44,11 +44,16 @@ class SimpleMemObject : public SimObject
       private:
         SimpleMemObject* owner;
 
+        PacketPtr blockedPacket;
+
       public:
         CPUSidePort(const std::string& name, SimpleMemObject* owner):
-            RequestPort(name, owner), owner(owner)
+            RequestPort(name, owner), owner(owner), blockedPacket(nullptr)
         {}
+
         AddrRangeList getAddrRanges() const override;
+
+        bool blocked() { return blockedPacket != nullptr; }
 
       protected:
         Tick recvAtomic(PacketPtr pkt) override { panic("recvAtomic unimpl.")}
@@ -61,11 +66,36 @@ class SimpleMemObject : public SimObject
     {
       private:
         SimpleMemObject* owner;
+
+        PacketPtr blockedPacket;
+
+      public:
+        MemSidePort(const std::string& name, SimpleMemObject* owner):
+          RequestPort(name, owner), owner(owner), blockedPacket(nullptr)
+        {}
+
+        bool blocked() { return blockedPacket != nullptr; }
+
+      protected:
+        bool recvTimingResp(PacketPtr pkt) override;
+        void recvReqRetry() override;
+        void recvRangeChange() override;
     }
+
+    CPUSidePort instPort;
+    CPUSidePort dataPort;
+
+    MemSidePort memPort;
+
+    bool blocked;
 
   public:
     PARAMS(SimpleMemObject);
+
     SimpleMemObject(const Params& params);
+
+    Port& getPort(const std::string& if_name,
+                  PortID idx=InvalidPortID) override;
 }
 
 } // namespace gem5
