@@ -24,7 +24,9 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from gem5.components.cachehierarchies.classic.abstract_classic_cache_hierarchy import AbstractClassicCacheHierarchy
+from gem5.components.cachehierarchies.classic.abstract_classic_cache_hierarchy import (
+    AbstractClassicCacheHierarchy,
+)
 from gem5.components.boards.abstract_board import AbstractBoard
 
 from .l1cache import L1Cache
@@ -32,11 +34,11 @@ from .l2cache import L2Cache
 
 from m5.objects import SystemXBar, Port, L2XBar
 
-class PrivateL1SharedL2CacheHierarchy(AbstractClassicCacheHierarchy):
 
+class PrivateL1SharedL2CacheHierarchy(AbstractClassicCacheHierarchy):
     def __init__(self, l1i_size: str, l1d_size: str, l2_size: str) -> None:
         AbstractClassicCacheHierarchy.__init__(self=self)
-        self.membus =  SystemXBar(width=64)
+        self.membus = SystemXBar(width=64)
         self._l1i_size = l1i_size
         self._l1d_size = l1d_size
         self._l2_size = l2_size

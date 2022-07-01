@@ -14,16 +14,15 @@ cache_hierarchy = UniqueCacheHierarchy()
 memory = SingleChannelDDR3_1600("1GiB")
 processor = SimpleProcessor(cpu_type=CPUTypes.ATOMIC, num_cores=1)
 
-#Add them to the board.
+# Add them to the board.
 board = SimpleBoard(
-    clk_freq="3GHz",
-    processor=processor,
-    memory=memory,
-    cache_hierarchy=cache_hierarchy,
+    clk_freq="3GHz", processor=processor, memory=memory, cache_hierarchy=cache_hierarchy
 )
 
 # Set the workload.
-binary = CustomResource("materials/using-gem5/02-stdlib/matrix-multiply/matrix-multiply")
+binary = CustomResource(
+    "materials/using-gem5/02-stdlib/matrix-multiply/matrix-multiply"
+)
 board.set_se_binary_workload(binary)
 
 # Setup the Simulator and run the simulation.

@@ -1,12 +1,12 @@
-from gem5.components.cachehierarchies.classic.abstract_classic_cache_hierarchy \
-    import AbstractClassicCacheHierarchy
+from gem5.components.cachehierarchies.classic.abstract_classic_cache_hierarchy import (
+    AbstractClassicCacheHierarchy,
+)
 from gem5.components.boards.abstract_board import AbstractBoard
 
 from m5.objects import Port
 
+
 class UniqueCacheHierarchy(AbstractClassicCacheHierarchy):
-
-
     def __init__(self) -> None:
         AbstractClassicCacheHierarchy.__init__(self=self)
 
