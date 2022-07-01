@@ -1,9 +1,12 @@
-from gem5.components.cachehierarchies.classic.abstract_classic_cache_hierarchy import AbstractClassicCacheHierarchy
+from gem5.components.cachehierarchies.classic.abstract_classic_cache_hierarchy import (
+    AbstractClassicCacheHierarchy,
+)
 from gem5.components.boards.abstract_board import AbstractBoard
 
 from .l1cache import L1Cache
 
 from m5.objects import Port, SystemXBar
+
 
 class UniqueCacheHierarchy(AbstractClassicCacheHierarchy):
     """
@@ -16,7 +19,7 @@ class UniqueCacheHierarchy(AbstractClassicCacheHierarchy):
 
     def __init__(self) -> None:
         AbstractClassicCacheHierarchy.__init__(self=self)
-        self.membus =  SystemXBar(width=64)
+        self.membus = SystemXBar(width=64)
 
     def get_mem_side_port(self) -> Port:
         return self.membus.mem_side_ports
@@ -32,13 +35,11 @@ class UniqueCacheHierarchy(AbstractClassicCacheHierarchy):
             cntr.port = self.membus.mem_side_ports
 
         self.l1icaches = [
-            L1Cache()
-            for i in range(board.get_processor().get_num_cores())
+            L1Cache() for i in range(board.get_processor().get_num_cores())
         ]
 
         self.l1dcaches = [
-            L1Cache()
-            for i in range(board.get_processor().get_num_cores())
+            L1Cache() for i in range(board.get_processor().get_num_cores())
         ]
 
         for i, cpu in enumerate(board.get_processor().get_cores()):

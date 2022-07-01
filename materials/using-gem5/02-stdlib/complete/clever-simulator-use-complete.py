@@ -15,25 +15,29 @@ cache_hierarchy = UniqueCacheHierarchy()
 memory = SingleChannelDDR3_1600("1GiB")
 processor = SimpleProcessor(cpu_type=CPUTypes.ATOMIC, num_cores=1)
 
-#Add them to the board.
+# Add them to the board.
 board = SimpleBoard(
-    clk_freq="3GHz",
-    processor=processor,
-    memory=memory,
-    cache_hierarchy=cache_hierarchy,
+    clk_freq="3GHz", processor=processor, memory=memory, cache_hierarchy=cache_hierarchy
 )
 
 # Set the workload.
-binary = CustomResource("materials/using-gem5/02-stdlib/m5-exit-example/m5-exit-example")
+binary = CustomResource(
+    "materials/using-gem5/02-stdlib/m5-exit-example/m5-exit-example"
+)
 board.set_se_binary_workload(binary)
 
 # Setup the Simulator and run the simulation.
 simulator = Simulator(
     board=board,
     on_exit_event={
-        ExitEvent.EXIT : (print(statement) for statement in ["Just exited the first exit event",
-                                                             "Just exited the second exit event",
-                                                             "Just exited the third exit event"]),
+        ExitEvent.EXIT: (
+            print(statement)
+            for statement in [
+                "Just exited the first exit event",
+                "Just exited the second exit event",
+                "Just exited the third exit event",
+            ]
+        )
     },
 )
 simulator.run()
