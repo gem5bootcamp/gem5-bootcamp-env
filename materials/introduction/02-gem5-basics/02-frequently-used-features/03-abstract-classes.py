@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class AbstractCPU(ABC):
     # not all functions have to be abstract
     def to_string(self):
@@ -13,36 +14,45 @@ class AbstractCPU(ABC):
     def connectToDataCache(self, data_cache):
         pass
 
+
 class CPUImplementation1(AbstractCPU):
     def __init__(self, freq):
         self.freq = freq
         self.inst_cache = None
         self.data_cache = None
+
     def connectToDataCache(self, data_cache):
         self.data_cache = data_cache
+
 
 class SimpleCacheCPU(AbstractCPU):
     def __init__(self, freq):
         self.freq = freq
         self.data_cache = None
+
     def connectToInstCache(self, inst_cache):
         # we'll use data_cache for caching instructions
         pass
+
     def connectToDataCache(self, data_cache):
         print("Connecting cpu to data cache")
         self.data_cache = data_cache
+
 
 class MultipleCacheCPU(AbstractCPU):
     def __init__(self, freq):
         self.freq = freq
         self.inst_cache = None
         self.data_cache = None
+
     def connectToInstCache(self, inst_cache):
         print("Connecting cpu to inst cache")
         self.inst_cache = inst_cache
+
     def connectToDataCache(self, data_cache):
         print("Connecting cpu to data cache")
         self.data_cache = data_cache
+
 
 # Example of using Abstract classes as an interface design pattern.
 #
@@ -63,9 +73,11 @@ class Simulator:
         self.cpu = cpu
         self.inst_cache = inst_cache
         self.data_cache = data_cache
+
     def initialize_system(self):
         self.cpu.connectToInstCache(self.inst_cache)
         self.cpu.connectToDataCache(self.data_cache)
+
 
 if __name__ == "__m5_main__":
     # creating an object from an abstract function will cause an error
