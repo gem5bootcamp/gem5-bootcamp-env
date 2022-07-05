@@ -28,10 +28,10 @@
 from m5.params import *
 from m5.SimObject import SimObject
 
-class GoodbyeObject(SimObject):
-    type = "GoodbyeObject"
-    cxx_header = "bootcamp/hello-sim-object/goodbye_object.hh"
-    cxx_class = "gem5::GoodbyeObject"
+class GoodbyeSimObject(SimObject):
+    type = "GoodbyeSimObject"
+    cxx_header = "bootcamp/hello-sim-object/goodbye_sim_object.hh"
+    cxx_class = "gem5::GoodbyeSimObject"
 
     buffer_size = Param.MemorySize("1KiB",
                                    "Size of buffer to fill with goodbye")

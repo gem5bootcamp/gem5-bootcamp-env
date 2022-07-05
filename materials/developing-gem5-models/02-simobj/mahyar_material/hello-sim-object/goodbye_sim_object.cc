@@ -26,7 +26,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "bootcamp/hello-sim-object/goodbye_object.hh"
+#include "bootcamp/hello-sim-object/goodbye_sim_object.hh"
 
 #include "base/trace.hh"
 #include "debug/HelloExample.hh"
@@ -35,7 +35,7 @@
 namespace gem5
 {
 
-GoodbyeObject::GoodbyeObject(const GoodbyeObjectParams &params) :
+GoodbyeSimObject::GoodbyeSimObject(const Params& params) :
     SimObject(params), event([this]{ processEvent(); }, name() + ".event"),
     bandwidth(params.write_bandwidth), bufferSize(params.buffer_size),
     buffer(nullptr), bufferUsed(0)
@@ -44,13 +44,13 @@ GoodbyeObject::GoodbyeObject(const GoodbyeObjectParams &params) :
     DPRINTF(HelloExample, "Created the goodbye object\n");
 }
 
-GoodbyeObject::~GoodbyeObject()
+GoodbyeSimObject::~GoodbyeSimObject()
 {
     delete[] buffer;
 }
 
 void
-GoodbyeObject::processEvent()
+GoodbyeSimObject::processEvent()
 {
     DPRINTF(HelloExample, "Processing the event!\n");
 
@@ -59,7 +59,7 @@ GoodbyeObject::processEvent()
 }
 
 void
-GoodbyeObject::sayGoodbye(std::string other_name)
+GoodbyeSimObject::sayGoodbye(std::string other_name)
 {
     DPRINTF(HelloExample, "Saying goodbye to %s\n", other_name);
 
@@ -72,7 +72,7 @@ GoodbyeObject::sayGoodbye(std::string other_name)
 }
 
 void
-GoodbyeObject::fillBuffer()
+GoodbyeSimObject::fillBuffer()
 {
     // There better be a message
     assert(message.length() > 0);

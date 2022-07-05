@@ -26,17 +26,63 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "bootcamp/hello-sim-object/hello_object.hh"
+#ifndef __BOOTCAMP_HELLO_SIM_OBJECT_GOODBYE_SIM_OBJECT_HH__
+#define __BOOTCAMP_HELLO_SIM_OBJECT_GOODBYE_SIM_OBJECT_HH__
 
-#include <iostream>
+#include <string>
+
+#include "params/GoodbyeObject.hh"
+#include "sim/sim_object.hh"
 
 namespace gem5
 {
 
-HelloObject::HelloObject(const Params &params):
-    SimObject(params),
+class GoodbyeSimObject : public SimObject
 {
-    std::cout << "Hello World! From a SimObject (constructor)." << std::endl;
-}
+  private:
+    /**
+     * Fill the buffer with the next chunk of data
+     */
+    void processEvent();
+
+    /// An event that wraps the above function
+    EventFunctionWrapper event;
+
+    /**
+     * Fills the buffer for one iteration. If the buffer isn't full, this
+     * function will enqueue another event to continue filling.
+     */
+    void fillBuffer();
+
+    /// The bytes processed per tick
+    float bandwidth;
+
+    /// The size of the buffer we are going to fill
+    int bufferSize;
+
+    /// The buffer we are putting our message in
+    char *buffer;
+
+    /// The message to put into the buffer.
+    std::string message;
+
+    /// The amount of the buffer we've used so far.
+    int bufferUsed;
+
+  public:
+    PARAMS(GoodbyeSimObject);
+    GoodbyeSimObject(const Params& params);
+    ~GoodbyeSimObject();
+
+    /**
+     * Called by an outside object. Starts off the events to fill the buffer
+     * with a goodbye message.
+     *
+     * @param name the name of the object we are saying goodbye to.
+     */
+    void sayGoodbye(std::string name);
+};
 
 } // namespace gem5
+
+#endif // __BOOTCAMP_HELLO_SIM_OBJECT_GOODBYE_SIM_OBJECT_HH__

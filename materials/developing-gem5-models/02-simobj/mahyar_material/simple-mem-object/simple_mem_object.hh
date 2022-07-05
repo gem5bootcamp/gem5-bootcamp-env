@@ -89,6 +89,16 @@ class SimpleMemObject : public SimObject
 
     bool blocked;
 
+    // TODO: define handleFunctional(PacketPtr)
+
+    // TODO: define getAddrRanges()
+
+    // TODO: define sendRangeChange()
+
+    // TODO: define handleRequest(PacketPtr pkt)
+
+    // TODO: define handleResponse(PacketPtr pkt)
+
   public:
     PARAMS(SimpleMemObject);
 

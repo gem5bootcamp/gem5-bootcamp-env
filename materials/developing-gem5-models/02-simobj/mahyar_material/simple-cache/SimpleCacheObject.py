@@ -1,4 +1,5 @@
-# Copyright (c) 2021 The Regents of the University of California.
+# -*- coding: utf-8 -*-
+# Copyright (c) 2017 Jason Lowe-Power
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -23,17 +24,21 @@
 # THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
 
-import m5
-from m5.objects import *
+from m5.params import *
+from m5.proxy import *
+from m5.objects.ClockedObject import ClockedObject
 
-root = Root(full_system=False)
+class SimpleCacheObject(ClockedObject):
+    type = "SimpleCacheObject"
+    cxx_header = "bootcamp/simple-cache/simple_cache_object.hh"
+    cxx_class = "gem5::SimpleCacheObject"
 
-root.hello = HelloSimObject()
+    cpu_side = VectorResponsePort("CPU side port, receives requests")
+    mem_side = RequestPort("Memory side port, sends requests")
 
-m5.instantiate()
+    latency = Param.Cycles(1, "Cycles taken on a hit or to resolve a miss")
 
-print("Beginning Simulation")
-exit_event = m5.simulate()
-print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}")
+    size = Param.MemorySize('16kB', "The size of the cache")
+
+    system = Param.System(Parent.any, "The system this cache is part of")
