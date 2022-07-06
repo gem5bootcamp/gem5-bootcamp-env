@@ -36,4 +36,4 @@ exclude:
 # Set some personal styles and logo for your course
 # this is a hex value http://www.w3schools.com/tags/ref_colorpicker.asp
 jumbotron_color: "#b5b3aa"
-jumbotron_image: "img/1280px-Haswell_Chip.jpg"
+jumbotron_image: "img/1280px-Haswell_Chip.jpeg"
