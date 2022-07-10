@@ -1,9 +1,9 @@
-FROM gcr.io/gem5-test/ubuntu-20.04_all-dependencies:v22-0
+FROM gcr.io/gem5-test/ubuntu-20.04_all-dependencies:stable
 
 RUN apt -y update
 RUN apt -y install git
 
-RUN git clone -b v22.0.0.1 https://gem5.googlesource.com/public/gem5
+RUN git clone -b stable https://gem5.googlesource.com/public/gem5
 
 WORKDIR /gem5
 
@@ -11,3 +11,4 @@ WORKDIR /gem5
 RUN scons -j`nproc` build/X86/gem5.fast CPU_MODELS=AtomicSimpleCPU,TimingSimpleCPU,O3CPU,MinorCPU
 RUN scons -j`nproc` build/ARM/gem5.fast CPU_MODELS=AtomicSimpleCPU,TimingSimpleCPU,O3CPU,MinorCPU
 RUN scons -j`nproc` build/RISCV/gem5.fast CPU_MODELS=AtomicSimpleCPU,TimingSimpleCPU,O3CPU,MinorCPU
+

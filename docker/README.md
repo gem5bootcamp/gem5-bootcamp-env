@@ -10,14 +10,17 @@ The gcr.io/gem5-test/gem5-tutorial-env Docker image contains:
     * RISCV64 GNU cross-compiler in `/opt/cross-compiler/riscv64-linux/`
     * AARCH64 GNU cross-compiler in `/opt/cross-compiler/aarch64-linux/`
 
-
 ## Building
 
 gcr.io/gem5-test/gem5-tutorial-env can be built by executing:
 
 ```
-docker-compose build gem5-tutorial-env
+make
 ```
+
+This will build the image in accordance to the [Makefile].
+It will pull the necessary Docker images and re-build them as required.
+The image built will always contain the latest stable release of gem5 (both the source and compiled binaries).
 
 The gcr.io/gem5-test/gem5-tutorial-env Docker image is built from the [Dockerfile](Dockerfile) file.
 It depends on the following images, which are built if not available:
@@ -36,7 +39,5 @@ It contains the AARCH64 GNU cross-compiler.
 
 ## Notes for gem5 developers
 
-These images can be pushed with: `docker-compose push`.
+These images can be pushed with: `make push`.
 Permission must be granted to push to the Google Cloud repository before doing so.
-
-The Dockerfile tags must be updated accordingly for each release of gem5.

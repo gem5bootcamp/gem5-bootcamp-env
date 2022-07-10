@@ -5,7 +5,7 @@
         "storage": "32gb"
     },
     "build": { "dockerfile": "Dockerfile" },
-    "onCreateCommand" : "on_create.sh",
+    "onCreateCommand" : "bash ./.devcontainer/on_create.sh",
 	"extensions": [
 		"ms-vscode.cpptools",
 		"streetsidesoftware.code-spell-checker",
