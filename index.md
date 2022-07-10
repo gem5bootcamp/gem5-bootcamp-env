@@ -3,6 +3,14 @@ layout: index
 title: Learning gem5 Bootcamp 2022
 ---
 
+## Livestream and discussion
+
+You can find links to all of the livestreamed videos on [YouTube](https://www.youtube.com/playlist?list=PL_hVbFs_loVSaSDPr1RJXP5RRFWjBMqq3).
+
+Instead of using YouTube comments, we will be using [Slack](https://app.slack.com/client/T03JNC47S2E/C03PJRJ4RQ8) for our discussions.
+You can use the following [invite link](https://join.slack.com/t/gem5-workspace/shared_invite/zt-1aal963w6-_cqn0u8QgBh3GeeSi2Ja7g) to enter the slack.
+Once you have joined, type `/join-channel bootcamp-2022` in any text box (e.g., in a DM to yourself) to join the bootcamp channel.
+
 ## Tentative schedule
 
 |Session| Topic | Objectives|
