@@ -10,7 +10,7 @@ from gem5.simulate.simulator import Simulator
 # Obtain the components.
 cache_hierarchy = NoCache()
 memory = SingleChannelDDR3_1600("1GiB")
-processor = SimpleProcessor(cpu_type=CPUTypes.ATOMIC, num_cores=1)
+processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, num_cores=1)
 
 # Add them to the board.
 board = SimpleBoard(
