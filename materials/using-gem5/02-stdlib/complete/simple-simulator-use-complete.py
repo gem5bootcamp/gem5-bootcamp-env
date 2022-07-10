@@ -12,7 +12,7 @@ from unique_cache_hierarchy.unique_cache_hierarchy_complete import UniqueCacheHi
 cache_hierarchy = UniqueCacheHierarchy()
 
 memory = SingleChannelDDR3_1600("1GiB")
-processor = SimpleProcessor(cpu_type=CPUTypes.ATOMIC, num_cores=1)
+processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, num_cores=1)
 
 # Add them to the board.
 board = SimpleBoard(
