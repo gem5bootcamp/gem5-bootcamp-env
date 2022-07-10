@@ -121,7 +121,7 @@ class SimpleCacheObject : public ClockedObject
     int waitingPortId;
     Tick missTime;
 
-    std::unordered_map<Addr, uint8_t*> cacheStore;
+    // TODO: std::unordered_map<Addr, uint8_t*> cacheStore;
 
   protected:
     struct SimpleCacheObjectStats : public statistics::Group

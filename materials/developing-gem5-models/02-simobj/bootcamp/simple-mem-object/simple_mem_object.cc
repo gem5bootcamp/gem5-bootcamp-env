@@ -40,11 +40,26 @@ SimpleMemObject::SimpleMemObject(const Params& params):
     blocked(false)
 {}
 
-// TODO: SimpleMemObject::getPort(const std::string& if_name, PortID idx)
+// TODO: Implement this function.
+Port&
+SimpleMemObject::getPort(const std::string& if_name, PortID idx)
+{
 
-// TODO: SimpleMemObject::CPUSidePort::recvFunctional(PacketPtr)
+}
 
-// TODO: SimpleMemObject::CPUSidePort::getAddrRanges() const
+// TODO: Implement this function.
+void
+SimpleMemObject::CPUSidePort::recvFunctional(PacketPtr)
+{
+
+}
+
+// TODO: Implement this function.
+AddrRangeList
+SimpleMemObject::CPUSidePort::getAddrRanges() const
+{
+
+}
 
 void
 SimpleMemObject::handleFunctional(PacketPtr pkt)
@@ -59,8 +74,12 @@ SimpleMemObject::getAddrRanges() const
     return memPort.getAddrRanges();
 }
 
-// TODO: SimpleMemObject::MemSidePort::recvRangeChange()
+// TODO: Implement this function.
+void
+SimpleMemObject::MemSidePort::recvRangeChange()
+{
 
+}
 
 void
 SimpleMemObject::sendRangeChange()
@@ -71,22 +90,51 @@ SimpleMemObject::sendRangeChange()
 }
 
 
-// TODO: SimpleMemObject::CPUSidePort::recvTimingReq(PacketPtr pkt)
+// TODO: Implement this function.
+bool
+SimpleMemObject::CPUSidePort::recvTimingReq(PacketPtr pkt)
+{
 
-// TODO: SimpleMemObject::handleRequest()
-// FIXME: code in learning gem5 does not evaluate memPort.blocked before
-// calling memPort.sendPacket
+}
 
-// TODO: SimpleMemObject::MemSidePort::sendPacket()
+// TODO: Implement this function.
+bool
+SimpleMemObject::handleRequest()
+{
 
-// TODO: SimpleMemObject::MemSidePort::recvReqRetry()
+}
 
-// TODO: SimpleMemObject::MemSidePort::recvTimingResp(PacketPtr pkt)
+// TODO: Implement this function.
+void
+SimpleMemObject::MemSidePort::sendPacket(PacketPtr pkt)
+{
+
+}
+
+// TODO: Implement this function.
+void
+SimpleMemObject::MemSidePort::recvReqRetry()
+{
+
+}
+
+// TODO: Implement this function.
 // TODO: Make sure to note that you should not return false to MemCtrl
 // TODO: Explain why this is the correct way of doing this and how this
 // looks like in real H/W
+bool
+SimpleMemObject::MemSidePort::recvTimingResp(PacketPtr pkt)
+{
 
-// TODO: SimpleMemObject::handleResponse(PacketPtr pkt)
+}
+
+
+// TODO: Implement this function.
+bool
+SimpleMemObject::handleResponse(PacketPtr pkt)
+{
+
+}
 // FIXME: Code in learning gem5 does not evaulate blocked() before calling
 // sendPacket (instPort/dataPort)
 // FIXME: Code in learning gem5 does not check if it has to send retry to
@@ -113,6 +161,11 @@ SimpleMemObject::CPUSidePort::recvRespRetry()
     sendPacket(pkt);
 }
 
-// TODO: SimpleMemObject::CPUSidePort::trySendRetry()
+// TODO: Implement this function.
+void
+SimpleMemObject::CPUSidePort::trySendRetry()
+{
+
+}
 
 } // namespace gem5

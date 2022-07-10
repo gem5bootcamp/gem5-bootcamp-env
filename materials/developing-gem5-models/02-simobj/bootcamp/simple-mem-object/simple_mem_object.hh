@@ -76,6 +76,8 @@ class SimpleMemObject : public SimObject
 
         bool blocked() { return blockedPacket != nullptr; }
 
+        void sendPacket(PacketPtr pkt);
+
       protected:
         bool recvTimingResp(PacketPtr pkt) override;
         void recvReqRetry() override;

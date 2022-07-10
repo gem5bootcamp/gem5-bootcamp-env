@@ -26,23 +26,17 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __BOOTCAMP_HELLO_SIM_OBJECT_HELLO_SIM_OBJECT_HH__
-#define __BOOTCAMP_HELLO_SIM_OBJECT_HELLO_SIM_OBJECT_HH__
+#include "bootcamp/hello-sim-object/hello_sim_object.hh"
 
-#include "params/HelloObject.hh"
-#include "sim/sim_object.hh"
+#include <iostream>
 
 namespace gem5
 {
 
-class HelloSimObject : public SimObject
+HelloSimObject::HelloSimObject(const Params &params):
+    SimObject(params),
 {
-  public:
-    PARAMS(HelloSimObject);
-    HelloSimObject(const Params& params);
-
-};
+    std::cout << "Hello World! From a SimObject (constructor)." << std::endl;
+}
 
 } // namespace gem5
-
-#endif // __BOOTCAMP_HELLO_SIM_OBJECT_HELLO_SIM_OBJECT_HH__
