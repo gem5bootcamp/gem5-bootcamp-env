@@ -7,3 +7,6 @@ _site/
 Gemfile.lock
 
 typings/
+
+# .vscode stuff
+.vscode/*.log

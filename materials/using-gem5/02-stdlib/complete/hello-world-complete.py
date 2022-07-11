@@ -12,12 +12,9 @@ cache_hierarchy = NoCache()
 memory = SingleChannelDDR3_1600("1GiB")
 processor = SimpleProcessor(cpu_type=CPUTypes.ATOMIC, num_cores=1)
 
-#Add them to the board.
+# Add them to the board.
 board = SimpleBoard(
-    clk_freq="3GHz",
-    processor=processor,
-    memory=memory,
-    cache_hierarchy=cache_hierarchy,
+    clk_freq="3GHz", processor=processor, memory=memory, cache_hierarchy=cache_hierarchy
 )
 
 # Set the workload.
