@@ -50,26 +50,30 @@ class SimpleMemObject : public SimObject
 
       public:
         CPUSidePort(const std::string& name, SimpleMemObject* owner):
-            RequestPort(name, owner), owner(owner), blockedPacket(nullptr)
+            ResponsePort(name, owner),
+            owner(owner), needRetry(false), blockedPacket(nullptr)
         {}
 
         AddrRangeList getAddrRanges() const override;
 
         bool blocked() { return blockedPacket != nullptr; }
 
+        void sendPacket(PacketPtr pkt);
+
       protected:
-        Tick recvAtomic(PacketPtr pkt) override { panic("recvAtomic unimpl.")}
+        Tick recvAtomic(PacketPtr pkt) override
+        {
+          panic("recvAtomic unimpl.");
+        }
         void recvFunctional(PacketPtr pkt) override;
         bool recvTimingReq(PacketPtr pkt) override;
         void recvRespRetry() override;
-    }
+    };
 
     class MemSidePort : public RequestPort
     {
       private:
         SimpleMemObject* owner;
-
-        bool needRetry;
 
         PacketPtr blockedPacket;
 
@@ -86,7 +90,7 @@ class SimpleMemObject : public SimObject
         bool recvTimingResp(PacketPtr pkt) override;
         void recvReqRetry() override;
         void recvRangeChange() override;
-    }
+    };
 
     CPUSidePort instPort;
     CPUSidePort dataPort;
