@@ -36,12 +36,14 @@ Usage
 -----
 
 ```
-gem5-x86 01-m5-library-example-1.py
+gem5-x86 03-m5-library-example-3.py
 ```
 """
 
+import argparse
+
 import m5
-from m5.objects import Root
+from m5.objects import AtomicSimpleCPU, Root
 
 from gem5.isas import ISA
 from gem5.utils.requires import requires
@@ -49,31 +51,53 @@ from gem5.resources.resource import Resource
 from gem5.components.memory import SingleChannelDDR3_1600
 from gem5.components.processors.cpu_types import CPUTypes
 from gem5.components.boards.simple_board import SimpleBoard
-from gem5.components.cachehierarchies.classic.no_cache import NoCache
 from gem5.components.processors.simple_processor import SimpleProcessor
 from gem5.simulate.simulator import Simulator
+from gem5.components.cachehierarchies.classic.private_l1_private_l2_cache_hierarchy import (
+    PrivateL1PrivateL2CacheHierarchy,
+)
 
 if __name__ == "__m5_main__":
 
+    # parsing arguments
+    parser = argparse.ArgumentParser(description="System Configuration")
+    parser.add_argument(
+        "cpu_type", type=str, help="CPU type, options are atomic, timing"
+    )
+    parser.add_argument("l1d_size", type=str, help="Size of L1 data cache, e.g. 16kB")
+    parser.add_argument("--clk_freq", type=str, help="Clock Frequency", default="1GHz")
+
+    args = parser.parse_args()
+
+    cpu_type = None
+    if args.cpu_type == "atomic":
+        cpu_type = CPUTypes.ATOMIC
+    elif args.cpu_type == "timing":
+        cpu_type = CPUTypes.TIMING
+    else:
+        raise Error("Unsupported CPU type. Must be atomic or timing")
+
     # Using gem5 standard library (i.e. import gem5) to build the system
     requires(isa_required=ISA.X86)
-    cache_hierarchy = NoCache()
+    # Here we setup the parameters of the l1 and l2 caches.
+    cache_hierarchy = PrivateL1PrivateL2CacheHierarchy(
+        l1d_size=args.l1d_size,
+        l1i_size="16kB",
+        l2_size="256kB",
+    )
     memory = SingleChannelDDR3_1600(size="32MB")
-    processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1)
+    processor = SimpleProcessor(cpu_type=cpu_type, isa=ISA.X86, num_cores=1)
     board = SimpleBoard(
-        clk_freq="3GHz",
+        clk_freq=args.clk_freq,
         processor=processor,
         memory=memory,
         cache_hierarchy=cache_hierarchy,
     )
     board.set_se_binary_workload(Resource("x86-hello64-static"))
 
-    # Using m5 library to drive the simulation!
+    # Using the m5 library to drive the simulation
     root = Root(full_system=False, system=board)
     m5.instantiate()
-    exit_event = (
-        m5.simulate()
-    )  # m5.simulate() without a parameter will run the simulation until the end
-
+    exit_event = m5.simulate()  # simulate the first 10 million ticks
     print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
     print()

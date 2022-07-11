@@ -8,7 +8,7 @@ if __name__ == "__m5_main__":
 
     # read from a file
     with open("example.txt", "r") as input_file:
-        for line in input_files.readlines():  # read all lines from the input file
+        for line in input_file.readlines():  # read all lines from the input file
             line = line.strip()  # strip the \n character of each line
             print(line)
 

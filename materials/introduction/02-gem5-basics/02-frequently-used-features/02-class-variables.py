@@ -76,6 +76,9 @@ if __name__ == "__m5_main__":
     print(f"Accessing default_frequency via cpu1: {cpu1.default_frequency}")
     print(f"Accessing default_frequency via cpu2: {cpu2.default_frequency}")
     print(f"Accessing default_frequency via Processor: {Processor.default_frequency}")
+    print(
+        f"Accessing default_frequency via ProcessorWithClassFunction: {ProcessorWithClassFunction.default_frequency}"
+    )
     print(f"cpu1 object variables: {vars(cpu1)}")
     print(f"cpu2 object variables: {vars(cpu2)}")
     print()
@@ -87,6 +90,9 @@ if __name__ == "__m5_main__":
     print(f"Accessing default_frequency via cpu1: {cpu1.default_frequency}")
     print(f"Accessing default_frequency via cpu2: {cpu2.default_frequency}")
     print(f"Accessing default_frequency via Processor: {Processor.default_frequency}")
+    print(
+        f"Accessing default_frequency via ProcessorWithClassFunction: {ProcessorWithClassFunction.default_frequency}"
+    )
     print(f"cpu1 object variables: {vars(cpu1)}")
     print(f"cpu2 object variables: {vars(cpu2)}")
     print()
