@@ -13,7 +13,7 @@ cache_hierarchy = PrivateL1CacheHierarchy(l1d_size="1KiB", l1i_size="1KiB")
 memory = SingleChannelDDR3_1600("1GiB")
 
 # By default, use AtomicSimpleCPU
-processor = SimpleProcessor(cpu_type=CPUTypes.O3, num_cores=1)
+processor = SimpleProcessor(cpu_type=CPUTypes.ATOMIC, num_cores=1)
 
 # Uncomment one of the following lines to use TimingSimpleCPU, or O3CPU
 #processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, num_cores=1)
