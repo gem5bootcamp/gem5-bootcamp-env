@@ -25,7 +25,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-This gem5 configuation script creates a simple board to run an X86
+This gem5 configuration script creates a simple board to run an X86
 "hello world" binary.
 
 This is setup is the close to the simplest setup possible using the gem5

@@ -25,7 +25,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-This gem5 configuation script creates a simple board to run an X86
+This gem5 configuration script creates a simple board to run an X86
 "hello world" binary.
 
 This is setup is the close to the simplest setup possible using the gem5
@@ -78,10 +78,6 @@ if __name__ == "__m5_main__":
     # Using the m5 library to drive the simulation
     root = Root(full_system=False, system=board)
     m5.instantiate()
-    exit_event = m5.simulate(10**7)  # simulate the first 10 million ticks
+    exit_event = m5.simulate()  # simulate the first 10 million ticks
     print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
     print()
-    m5.stats.dump()  # output stats
-    m5.stats.reset()  # reset the stats
-    exit_event = m5.simulate()  # simulate until the end of the simulation
-    print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}.")
