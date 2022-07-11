@@ -1,0 +1,82 @@
+From 0fdf955f61159f17d7d7e0b0f15b586bca744cf9 Mon Sep 17 00:00:00 2001
+From: Ayaz Akram <yazakram@ucdavis.edu>
+Date: Sun, 10 Jul 2022 23:46:02 -0700
+Subject: [PATCH 1/1] arch-riscv: Add some RISC-V packed SIMD instructions
+
+Change-Id: Ide132770a18fcda18158908a1f4e40207ba7f061
+---
+ src/arch/riscv/isa/decoder.isa | 58 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
+
+diff --git a/src/arch/riscv/isa/decoder.isa b/src/arch/riscv/isa/decoder.isa
+index 6cd7d952e..565f7dfae 100644
+--- a/src/arch/riscv/isa/decoder.isa
++++ b/src/arch/riscv/isa/decoder.isa
+@@ -1001,6 +1001,64 @@ decode QUADRANT default Unknown::unknown() {
+             Rd = (uint64_t)(sext<20>(imm) << 12);
+         }});
+ 
++        0x1d: decode FUNCT3 {
++            format ROp {
++                0x0: decode FUNCT7 {
++                    0x20: add16({{
++                        uint16_t Rd_16 = (uint16_t)(Rs1_ud) +
++                                                    (uint16_t)(Rs2_ud);
++                        uint16_t Rd_32 = (uint16_t)((Rs1_ud >> 16) +
++                                                    (Rs2_ud >> 16));
++                        uint16_t Rd_48 = (uint16_t)((Rs1_ud >> 32) +
++                                                    (Rs2_ud >> 32));
++                        uint16_t Rd_64 = (uint16_t)((Rs1_ud >> 48) +
++                                                    (Rs2_ud >> 48));
++                        uint64_t result = Rd_64;
++                        result = result << 16 | Rd_48;
++                        result = result << 16 | Rd_32;
++                        result = result << 16 | Rd_16;
++                        Rd = result;
++
++                    }}, IntAluOp);
++                    0x26: cmpeq16({{
++
++                        uint16_t Rd_16 = ((uint16_t)(Rs1_ud)  ==
++                                    (uint16_t)(Rs2_ud)) ? 0xFFFF : 0x0;
++                        uint16_t Rd_32 = ((uint16_t)(Rs1_ud >> 16)  ==
++                                    (uint16_t)(Rs2_ud >> 16)) ? 0xFFFF : 0x0;
++                        uint16_t Rd_48 = ((uint16_t)(Rs1_ud >> 32)  ==
++                                    (uint16_t)(Rs2_ud >> 32)) ? 0xFFFF : 0x0;
++                        uint16_t Rd_64 = ((uint16_t)(Rs1_ud >> 48)  ==
++                                    (uint16_t)(Rs2_ud >> 48)) ? 0xFFFF : 0x0;
++                        uint64_t result = Rd_64;
++                        result = result << 16 | Rd_48;
++                        result = result << 16 | Rd_32;
++                        result = result << 16 | Rd_16;
++                        Rd = result;
++
++                    }}, IntAluOp);
++                    0x28: sra16({{
++                        //shift amount in low 4 bits of RS2
++
++                        uint16_t shift_amount = Rs2 & 0x000F;
++                        int16_t Rd_16 = (int16_t)(Rs1_ud) >> shift_amount;
++                        int16_t Rd_32 = (int16_t)(Rs1_ud >> 16)
++                                                >> shift_amount;
++                        int16_t Rd_48 = (int16_t)(Rs1_ud >> 32)
++                                                >> shift_amount;
++                        int16_t Rd_64 = (int16_t)(Rs1_ud >> 48)
++                                                >> shift_amount;
++                        uint64_t result = Rd_64;
++                        result = result << 16 | Rd_48;
++                        result = result << 16 | Rd_32;
++                        result = result << 16 | Rd_16;
++                        Rd = result;
++
++                    }}, IntAluOp);
++                }
++            }
++        }
++
+         0x0e: decode FUNCT3 {
+             format ROp {
+                 0x0: decode FUNCT7 {
+-- 
+2.25.1
+

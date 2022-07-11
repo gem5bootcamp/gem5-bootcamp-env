@@ -121,3 +121,4 @@ class SimpleMemObject : public SimObject
 } // namespace gem5
 
 #endif // __BOOTCAMP_SIMPLE_MEM_OBJECT_SIMPLE_MEM_OBJECT_HH__
+

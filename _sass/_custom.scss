@@ -53,6 +53,27 @@ body {
   }
 }
 
+.slides-link {
+  padding: 15px;
+  color: $gray-light;
+  background-color: $secondary;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  p.section {
+    margin-left: 5px;
+  }
+}
+
 .discord {
   p {
     margin-top: 10px;

@@ -17,5 +17,19 @@ ENV PATH="/opt/cross-compiler/riscv64-linux/bin:${PATH}"
 # Install gdb
 RUN apt install -y gdb
 
+# Install the Python library dependencies
 # Install black
 RUN pip install black
+
+# Install pandas lib
+RUN pip install pandas
+
+# Install matplotlib
+RUN pip install matplotlib
+
+# Install numpy lib
+RUN pip install numpy
+
+# Install Python library dependencies
+
+RUN pip install seaborn

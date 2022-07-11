@@ -1,7 +1,8 @@
 ---
 title: Computer Architecture Simulation
 author: Jason Lowe-Power
-slides_link: https://ucdavis365-my.sharepoint.com/:p:/g/personal/jlowepower_ucdavis_edu/EQzh7f8i3NNPv9nIfib9JX4BlHCsqIPDfFBtfuUgOThbTA?e=xJ0d3D
+slides_code: EQzh7f8i3NNPv9nIfib9JX4BlHCsqIPDfFBtfuUgOThbTA?e=vZteRN
+livestream_code: i7ipNe0JGYg
 ---
 
 In this section we will learn about general computer architecture simulation techniques, specific different simulation techniques, and where gem5 fits into these frameworks.

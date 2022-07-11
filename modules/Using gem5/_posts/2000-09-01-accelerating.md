@@ -1,6 +1,8 @@
 ---
 title: Accelerating gem5 simulation
 author: Kaustav Goswami
+slides_code: EdBBrkw4m2NIts3zsTs_Jj4BM4Llg_I37YpFdyFXWUBiNQ?e=7Dj4LQ
+livestream_code: 0Gxuc8lel3Y
 ---
 
 ## Checkpoints

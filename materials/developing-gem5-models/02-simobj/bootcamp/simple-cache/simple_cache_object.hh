@@ -93,7 +93,6 @@ class SimpleCacheObject : public ClockedObject
     bool handleRequest(PacketPtr pkt, int port_id);
     bool handleResponse(PacketPtr pkt);
 
-
     // TODO: define void sendResponse(PacketPtr pkt);
 
     // TODO: define void handleFunctional(PacketPtr pkt);
