@@ -121,9 +121,6 @@ SimpleMemObject::MemSidePort::recvReqRetry()
 }
 
 // TODO: Implement this function.
-// TODO: Make sure to note that you should not return false to MemCtrl
-// TODO: Explain why this is the correct way of doing this and how this
-// looks like in real H/W
 bool
 SimpleMemObject::MemSidePort::recvTimingResp(PacketPtr pkt)
 {
@@ -137,10 +134,6 @@ SimpleMemObject::handleResponse(PacketPtr pkt)
 {
 
 }
-// FIXME: Code in learning gem5 does not evaulate blocked() before calling
-// sendPacket (instPort/dataPort)
-// FIXME: Code in learning gem5 does not check if it has to send retry to
-// CPU.
 
 void
 SimpleMemObject::CPUSidePort::sendPacket(PacketPtr pkt)

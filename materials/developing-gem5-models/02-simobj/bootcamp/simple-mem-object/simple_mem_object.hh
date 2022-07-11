@@ -44,6 +44,8 @@ class SimpleMemObject : public SimObject
       private:
         SimpleMemObject* owner;
 
+        bool needRetry;
+
         PacketPtr blockedPacket;
 
       public:
@@ -66,6 +68,8 @@ class SimpleMemObject : public SimObject
     {
       private:
         SimpleMemObject* owner;
+
+        bool needRetry;
 
         PacketPtr blockedPacket;
 
@@ -91,15 +95,15 @@ class SimpleMemObject : public SimObject
 
     bool blocked;
 
-    // TODO: define handleFunctional(PacketPtr)
+    // TODO: define void handleFunctional(PacketPtr)
 
-    // TODO: define getAddrRanges()
+    // TODO: define AddrRangeList getAddrRanges()
 
-    // TODO: define sendRangeChange()
+    // TODO: define void sendRangeChange()
 
-    // TODO: define handleRequest(PacketPtr pkt)
+    // TODO: define bool handleRequest(PacketPtr pkt)
 
-    // TODO: define handleResponse(PacketPtr pkt)
+    // TODO: define bool handleResponse(PacketPtr pkt)
 
   public:
     PARAMS(SimpleMemObject);
