@@ -27,6 +27,8 @@
  */
 
 #include "bootcamp/simple-mem-object/simple_mem_object.hh"
+
+#include "base/trace.hh"
 #include "debug/SimpleMemObject.hh"
 
 namespace gem5
