@@ -1,7 +1,11 @@
 ---
 title: "Creating a `SimObject`"
 author: ["Jason Lowe-Power", "Mahyar Samani"]
+slides_code: EUq-MeBW7YJKlNOoqk5irdoBoEhpDDlojUDUSEXYWr50Iw?e=cgPEYA
+livestream_code: OcXA1D4b1RA
 ---
+
+**NOTE:** This text is not necessarily up to date!
 
 **TO DO:** Please update with `PARAMS(<SimObject>)`
 
