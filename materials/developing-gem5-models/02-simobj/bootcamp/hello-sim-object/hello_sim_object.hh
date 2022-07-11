@@ -40,7 +40,6 @@ class HelloSimObject : public SimObject
   public:
     PARAMS(HelloSimObject);
     HelloSimObject(const Params& params);
-
 };
 
 } // namespace gem5
