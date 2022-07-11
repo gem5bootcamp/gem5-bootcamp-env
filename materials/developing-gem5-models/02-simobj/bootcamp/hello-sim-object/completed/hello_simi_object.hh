@@ -37,9 +37,20 @@ namespace gem5
 
 class HelloSimObject : public SimObject
 {
+  private:
+    EventFunctionWrapper event;
+
+    void processEvent();
+
+    const Tick latency;
+
+    int timesLeft;
+
   public:
     PARAMS(HelloSimObject);
     HelloSimObject(const Params& params);
+
+    virtual void startup() override;
 };
 
 } // namespace gem5

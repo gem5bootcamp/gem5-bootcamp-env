@@ -26,22 +26,53 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __BOOTCAMP_HELLO_SIM_OBJECT_HELLO_SIM_OBJECT_HH__
-#define __BOOTCAMP_HELLO_SIM_OBJECT_HELLO_SIM_OBJECT_HH__
+#include "bootcamp/hello-sim-object/hello_sim_object.hh"
 
-#include "params/HelloSimObject.hh"
-#include "sim/sim_object.hh"
+#include "base/trace.hh"
+#include "debug/HelloExampleFlag.hh"
+#include "sim/sim_exit.hh"
 
 namespace gem5
 {
 
-class HelloSimObject : public SimObject
+HelloSimObject::HelloSimObject(const Params &params):
+    SimObject(params),
+    event([this]{ processEvent(); }, name() + ".event"),
+    latency(params.time_to_wait),
+    timesLeft(params.number_of_greets)
 {
-  public:
-    PARAMS(HelloSimObject);
-    HelloSimObject(const Params& params);
-};
+    DPRINTF(HelloExampleFlag, "%s: Hello World! From a "
+                    "SimObject (constructor).\n", __func__);
+}
+
+void
+HelloSimObject::startup()
+{
+    DPRINTF(HelloExampleFlag, "%s: HelloWorld! From a "
+                    "SimObject (startup).\n", __func__);
+
+    assert(!event.scheduled());
+
+    schedule(event, curTick() + latency);
+}
+
+void
+HelloSimObject::processEvent()
+{
+    if (timesLeft > 0) {
+        timesLeft--;
+        DPRINTF(HelloExampleFlag, "%s: Hello World! Processing an event. "
+                                "%d greets left.\n", __func__, timesLeft);
+    }
+
+    if (timesLeft == 0) {
+        DPRINTF(HelloExampleFlag, "%s: Done greeting.\n", __func__);
+        exitSimLoopNow("No greets left.", 0);
+    }
+
+    if ((timesLeft > 0) && (!event.scheduled())) {
+        schedule(event, curTick() + latency);
+    }
+}
 
 } // namespace gem5
-
-#endif // __BOOTCAMP_HELLO_SIM_OBJECT_HELLO_SIM_OBJECT_HH__

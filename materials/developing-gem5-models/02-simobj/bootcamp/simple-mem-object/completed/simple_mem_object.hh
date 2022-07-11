@@ -99,19 +99,18 @@ class SimpleMemObject : public SimObject
 
     bool blocked;
 
-    // TODO: define void handleFunctional(PacketPtr)
+    void handleFunctional(PacketPtr);
 
-    // TODO: define AddrRangeList getAddrRanges()
+    AddrRangeList getAddrRanges();
 
-    // TODO: define void sendRangeChange()
+    void sendRangeChange();
 
-    // TODO: define bool handleRequest(PacketPtr pkt)
+    bool handleRequest(PacketPtr pkt);
 
-    // TODO: define bool handleResponse(PacketPtr pkt)
+    bool handleResponse(PacketPtr pkt);
 
   public:
     PARAMS(SimpleMemObject);
-
     SimpleMemObject(const Params& params);
 
     Port& getPort(const std::string& if_name,
@@ -121,4 +120,3 @@ class SimpleMemObject : public SimObject
 } // namespace gem5
 
 #endif // __BOOTCAMP_SIMPLE_MEM_OBJECT_SIMPLE_MEM_OBJECT_HH__
-

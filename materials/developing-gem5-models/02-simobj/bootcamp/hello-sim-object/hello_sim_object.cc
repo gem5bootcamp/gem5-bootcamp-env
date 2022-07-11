@@ -34,7 +34,7 @@ namespace gem5
 {
 
 HelloSimObject::HelloSimObject(const Params &params):
-    SimObject(params),
+    SimObject(params)
 {
     std::cout << "Hello World! From a SimObject (constructor)." << std::endl;
 }

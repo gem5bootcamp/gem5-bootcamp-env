@@ -93,16 +93,15 @@ class SimpleCacheObject : public ClockedObject
     bool handleRequest(PacketPtr pkt, int port_id);
     bool handleResponse(PacketPtr pkt);
 
+    // TODO: define void sendResponse(PacketPtr pkt);
 
-    // TODO: define sendResponse(PacketPtr pkt);
+    // TODO: define void handleFunctional(PacketPtr pkt);
 
-    // TODO: define handleFunctional(PacketPtr pkt);
+    // TODO: define void accessTiming(PacketPtr pkt);
 
-    // TODO: define accessTiming(PacketPtr pkt);
+    // TODO: define bool accessFunctional(PacketPtr pkt);
 
-    // TODO: define accessFunctional(PacketPtr pkt);
-
-    // TODO: insert(PacketPtr pkt);
+    // TODO: void insert(PacketPtr pkt);
 
     AddrRangeList getAddrRanges() const;
     void sendRangeChange() const;
