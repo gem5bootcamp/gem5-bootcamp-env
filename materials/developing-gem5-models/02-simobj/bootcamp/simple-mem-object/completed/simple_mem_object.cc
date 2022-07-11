@@ -59,7 +59,7 @@ SimpleMemObject::getPort(const std::string& if_name, PortID idx)
 
 // TODO: Implement this function.
 void
-SimpleMemObject::CPUSidePort::recvFunctional(PacketPtr)
+SimpleMemObject::CPUSidePort::recvFunctional(PacketPtr pkt)
 {
     owner->handleFunctional(pkt);
 }
@@ -177,6 +177,8 @@ SimpleMemObject::handleResponse(PacketPtr pkt)
 
     instPort.trySendRetry();
     dataPort.trySendRetry();
+
+    return true;
 }
 
 void

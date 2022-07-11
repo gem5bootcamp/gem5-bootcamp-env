@@ -29,12 +29,12 @@
 #ifndef __BOOTCAMP_SIMPLE_MEM_OBJECT_SIMPLE_MEM_OBJECT_HH__
 #define __BOOTCAMP_SIMPLE_MEM_OBJECT_SIMPLE_MEM_OBJECT_HH__
 
-namespace gem5
-{
-
 #include "mem/port.hh"
 #include "params/SimpleMemObject.hh"
 #include "sim/sim_object.hh"
+
+namespace gem5
+{
 
 class SimpleMemObject : public SimObject
 {
@@ -60,10 +60,12 @@ class SimpleMemObject : public SimObject
 
         void sendPacket(PacketPtr pkt);
 
+        void trySendRetry();
+
       protected:
         Tick recvAtomic(PacketPtr pkt) override
         {
-          panic("recvAtomic unimpl.");
+            panic("recvAtomic unimpl.");
         }
         void recvFunctional(PacketPtr pkt) override;
         bool recvTimingReq(PacketPtr pkt) override;
@@ -99,9 +101,9 @@ class SimpleMemObject : public SimObject
 
     bool blocked;
 
-    void handleFunctional(PacketPtr);
+    void handleFunctional(PacketPtr pkt);
 
-    AddrRangeList getAddrRanges();
+    AddrRangeList getAddrRanges() const;
 
     void sendRangeChange();
 
@@ -115,7 +117,7 @@ class SimpleMemObject : public SimObject
 
     Port& getPort(const std::string& if_name,
                   PortID idx=InvalidPortID) override;
-}
+};
 
 } // namespace gem5
 
