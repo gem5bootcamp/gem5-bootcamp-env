@@ -25,9 +25,9 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-Hands-on Session 0: Creating a base system.
+Hands-on Session 2: LLVM Stanford Benchmark
 -------------------------------------------
-This is a completed renscript file.
+This is a completed runscript file.
 
 This is a simple script to run the a binary program using the SimpleBoard.
 We will use x86 ISA for this example. This script is partly taken from
@@ -124,7 +124,7 @@ memory = DualChannelDDR4_2400(size="2GB")
 # We have a TIMING CPU. 
 
 processor = SimpleProcessor(
-    cpu_type = CPUTypes.CPU,
+    cpu_type = CPUTypes.TIMING,
     isa = ISA.X86,
     num_cores = 1
 )

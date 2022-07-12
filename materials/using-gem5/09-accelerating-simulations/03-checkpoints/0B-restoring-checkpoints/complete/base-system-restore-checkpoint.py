@@ -25,7 +25,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-Hands-on Session 0: Creating a base system.
+Hands-on Session 3: Checkpoints
 -------------------------------------------
 This is a completed renscript file.
 
@@ -159,7 +159,7 @@ simulator = Simulator(
                 "checkpoint-directory"
         )
 )
-simulator.run()
+simulator.run(max_ticks = 1000000000000)
 
 # We acknowledge the user that the simulation has ended.
 

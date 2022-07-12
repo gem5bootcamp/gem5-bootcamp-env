@@ -25,7 +25,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-Hands-on Session 0: Creating a base system.
+Hands-on Session 3: Checkpoints
 -------------------------------------------
 This is a completed renscript file.
 
@@ -153,8 +153,27 @@ board.set_se_binary_workload(
 # Lastly we instantiate the simulator module and simulate the program.
 
 simulator = Simulator(board=board)
+
+# Run till the first checkpoint.
 simulator.run()
 
-# We acknowledge the user that the simulation has ended.
+# We acknowlwdge the user that the simulation has ended.
 
-print("The simulation completed successfully!")
+print(
+    "Encountered ExitEvent @ tick {} because {}.".format(
+        simulator.get_current_tick(),
+        simulator.get_last_exit_event_cause(),
+    )
+)
+
+simulator.run(max_ticks = 1000000000)
+
+
+print(
+    "Encountered ExitEvent @ tick {} because {}.".format(
+        simulator.get_current_tick(),
+        simulator.get_last_exit_event_cause(),
+    )
+)
+
+simulator.save_checkpoint("checkpoint-dir")

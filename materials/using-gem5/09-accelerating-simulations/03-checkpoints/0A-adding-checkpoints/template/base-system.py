@@ -25,7 +25,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-Hands-on Session 0: Creating a base system.
+Hands-on Session 3: Checkpoints
 -------------------------------------------
 This is a completed renscript file.
 
@@ -155,6 +155,11 @@ board.set_se_binary_workload(
 simulator = Simulator(board=board)
 simulator.run()
 
-# We acknowledge the user that the simulation has ended.
+# We acknowlwdge the user that the simulation has ended.
 
-print("The simulation completed successfully!")
+print(
+    "Exiting @ tick {} because {}.".format(
+        simulator.get_current_tick(),
+        simulator.get_last_exit_event_cause(),
+    )
+)

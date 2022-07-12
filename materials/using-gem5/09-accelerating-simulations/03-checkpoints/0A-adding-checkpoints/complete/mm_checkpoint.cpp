@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
     auto mm_start = std :: chrono :: high_resolution_clock :: now();
 
 #ifdef GEM5
-    m5_exit(0);
+    m5_checkpoint(0, 0);
 #endif
 
     for(int i = 0 ; i < N ; i++)
@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
                 C[i][j] += A[i][k] * B[k][j];
 
 #ifdef GEM5
-    m5_exit(0);
+    m5_checkpoint(0, 0);
 #endif
 
     auto mm_end = std :: chrono :: high_resolution_clock :: now();
