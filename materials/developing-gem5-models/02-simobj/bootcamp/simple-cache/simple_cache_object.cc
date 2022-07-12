@@ -97,7 +97,12 @@ SimpleCacheObject::CPUSidePort::recvFunctional(PacketPtr pkt)
     return owner->handleFunctional(pkt);
 }
 
-// TODO: SimpleCache::CPUSidePort::recvTimingReq(PacketPtr pkt)
+// TODO: Implement this function.
+bool
+SimpleCache::CPUSidePort::recvTimingReq(PacketPtr pkt)
+{
+
+}
 
 void
 SimpleCacheObject::CPUSidePort::recvRespRetry()
@@ -147,11 +152,26 @@ SimpleCacheObject::MemSidePort::recvRangeChange()
     owner->sendRangeChange();
 }
 
-// TODO: SimpleCache::handleRequest(PacketPtr pkt, int port_id)
+// TODO: Implement this function.
+bool
+SimpleCache::handleRequest(PacketPtr pkt, int port_id)
+{
 
-// TODO: SimpleCache::handleResponse(PacketPtr pkt)
+}
 
-// TODO: SimpleCache::sendResponse(PacketPtr pkt)
+// TODO: Implement this function.
+bool
+SimpleCache::handleResponse(PacketPtr pkt)
+{
+
+}
+
+// TODO: Implement this function.
+void
+SimpleCache::sendResponse(PacketPtr pkt)
+{
+
+}
 
 void
 SimpleCacheObject::handleFunctional(PacketPtr pkt)
@@ -163,11 +183,26 @@ SimpleCacheObject::handleFunctional(PacketPtr pkt)
     }
 }
 
-// TODO: SimpleCacheObject::accessTiming(PacketPtr pkt)
+// TODO: Implement this function.
+void
+SimpleCacheObject::accessTiming(PacketPtr pkt)
+{
 
-// TODO: SimpleCacheObject::accessFunctional(PacketPtr pkt)
+}
 
-// TODO: SimpleCacheObject::insert(PacketPtr pkt)
+// TODO: Implement this function.
+bool
+SimpleCacheObject::accessFunctional(PacketPtr pkt)
+{
+
+}
+
+// TODO: Implement this function.
+void
+SimpleCacheObject::insert(PacketPtr pkt)
+{
+
+}
 
 AddrRangeList
 SimpleCacheObject::getAddrRanges() const
