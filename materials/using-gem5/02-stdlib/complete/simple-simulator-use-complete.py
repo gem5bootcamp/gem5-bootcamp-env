@@ -1,15 +1,13 @@
 from gem5.components.boards.simple_board import SimpleBoard
 from gem5.components.memory.single_channel import SingleChannelDDR3_1600
+from gem5.components.cachehierarchies.classic.no_cache import NoCache
 from gem5.components.processors.simple_processor import SimpleProcessor
 from gem5.components.processors.cpu_types import CPUTypes
 from gem5.resources.resource import CustomResource
 from gem5.simulate.simulator import Simulator
 
-from unique_cache_hierarchy.unique_cache_hierarchy_complete import UniqueCacheHierarchy
-
-
 # Obtain the components.
-cache_hierarchy = UniqueCacheHierarchy()
+cache_hierarchy = NoCache()
 
 memory = SingleChannelDDR3_1600("1GiB")
 processor = SimpleProcessor(cpu_type=CPUTypes.TIMING, num_cores=1)
