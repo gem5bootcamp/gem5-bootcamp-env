@@ -4,7 +4,7 @@ import argparse
 from m5.objects.DRAMInterface import *
 from m5.objects.NVMInterface import *
 
-# sample cmd: build/NULL/gem5.opt --outdir=m5out1 traffGen_example.py DDR3_1600_8x8 1GB linear 100000000 1000 100
+# sample cmd: build/NULL/gem5.opt --outdir=m5out1 traffGen_example.py DDR3_1600_8x8 linear 100
 
 args = argparse.ArgumentParser()
 
@@ -15,27 +15,9 @@ args.add_argument(
 )
 
 args.add_argument(
-    "mem_dev_size",
-    type = str,
-    help = "Size of the memory, ex: 512MiB, 4GB"
-)
-
-args.add_argument(
     "traffic_mode",
     type = str,
-    help = "Traffic type to use, linear, random"
-)
-
-args.add_argument(
-    "duration",
-    type = int,
-    help = "Duration of simulation in #ticks, 10000000 = 10ms"
-)
-
-args.add_argument(
-    "inj_period",
-    type = int,
-    help = "Period to inject reqs (ticks), ex: 1000"
+    help = "pattern of generated addresses, linear or random."
 )
 
 args.add_argument(
@@ -56,30 +38,30 @@ system.generator = PyTrafficGen()
 
 system.mem_ctrl = MemCtrl()
 system.mem_ctrl.dram = eval(options.mem_dev_type)(range=AddrRange('8GB'))
-system.mem_ctrl.dram.device_size = options.mem_dev_size
+system.mem_ctrl.dram.device_size = '1GB'
 
 system.mem_ranges = [AddrRange('8GB')]
 
 system.generator.port = system.mem_ctrl.port
 
 def createRandomTraffic(tgen):
-    yield tgen.createRandom(options.duration,                    # duration
+    yield tgen.createRandom(1000000000,                    # duration
                             0,                                   # min_addr
-                            AddrRange(options.mem_dev_size).end, # max_adr
+                            AddrRange('1GB').end, # max_adr
                             64,                                  # block_size
-                            options.inj_period,                  # min_period
-                            options.inj_period,                  # max_period
+                            1000,                  # min_period
+                            1000,                  # max_period
                             options.rd_prct,                     # rd_perc
                             0)                                   # data_limit
     yield tgen.createExit(0)
 
 def createLinearTraffic(tgen):
-    yield tgen.createLinear(options.duration,                    # duration
+    yield tgen.createLinear(1000000000,                    # duration
                             0,                                   # min_addr
-                            AddrRange(options.mem_dev_size).end, # max_adr
+                            AddrRange('1GB').end, # max_adr
                             64,                                  # block_size
-                            options.inj_period,                  # min_period
-                            options.inj_period,                  # max_period
+                            1000,                  # min_period
+                            1000,                  # max_period
                             options.rd_prct,                     # rd_perc
                             0)                                   # data_limit
     yield tgen.createExit(0)
