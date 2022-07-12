@@ -37,32 +37,36 @@ system.mem_ranges = [AddrRange('512MB')]
 
 system.cpu = TimingSimpleCPU()
 
-system.memobj = SimpleMemobj()
+system.memobj = SimpleMemObject()
 
 system.cpu.icache_port = system.memobj.inst_port
 system.cpu.dcache_port = system.memobj.data_port
 
 system.membus = SystemXBar()
 
-system.memobj.mem_side = system.membus.slave
+system.memobj.mem_port = system.membus.cpu_side_ports
 
 system.cpu.createInterruptController()
-system.cpu.interrupts[0].pio = system.membus.master
-system.cpu.interrupts[0].int_master = system.membus.slave
-system.cpu.interrupts[0].int_slave = system.membus.master
+system.cpu.interrupts[0].pio = system.membus.mem_side_ports
+system.cpu.interrupts[0].int_requestor = system.membus.cpu_side_ports
+system.cpu.interrupts[0].int_responder = system.membus.mem_side_ports
 
-system.mem_ctrl = DDR3_1600_8x8()
-system.mem_ctrl.range = system.mem_ranges[0]
-system.mem_ctrl.port = system.membus.master
+system.mem_ctrl = MemCtrl(dram=DDR3_1600_8x8(range=system.mem_ranges[0]))
+system.mem_ctrl.port = system.membus.mem_side_ports
 
-system.system_port = system.membus.slave
+system.system_port = system.membus.cpu_side_ports
+
+
+binary = "tests/test-progs/hello/bin/x86/linux/hello"
+system.workload = SEWorkload.init_compatible(binary)
 
 process = Process()
-process.cmd = ['tests/test-progs/hello/bin/x86/linux/hello']
+process.cmd = [binary]
 system.cpu.workload = process
 system.cpu.createThreads()
 
 root = Root(full_system = False, system = system)
+
 m5.instantiate()
 
 print ("Beginning simulation!")
