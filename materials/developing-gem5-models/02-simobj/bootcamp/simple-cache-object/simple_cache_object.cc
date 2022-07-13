@@ -26,7 +26,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "bootcamp/simple-cache/simple_cache_object.hh"
+#include "bootcamp/simple-cache-object/simple_cache_object.hh"
 
 #include "base/compiler.hh"
 #include "base/random.hh"

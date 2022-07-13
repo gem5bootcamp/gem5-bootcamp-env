@@ -31,7 +31,7 @@ from m5.objects.ClockedObject import ClockedObject
 
 class SimpleCacheObject(ClockedObject):
     type = "SimpleCacheObject"
-    cxx_header = "bootcamp/simple-cache/simple_cache_object.hh"
+    cxx_header = "bootcamp/simple-cache-object/simple_cache_object.hh"
     cxx_class = "gem5::SimpleCacheObject"
 
     cpu_side = VectorResponsePort("CPU side port, receives requests")
