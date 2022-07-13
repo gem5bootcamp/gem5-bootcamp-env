@@ -33,7 +33,7 @@
 
 #include "base/statistics.hh"
 #include "mem/port.hh"
-#include "params/SimpleCache.hh"
+#include "params/SimpleCacheObject.hh"
 #include "sim/clocked_object.hh"
 
 namespace gem5
@@ -48,16 +48,17 @@ class SimpleCacheObject : public ClockedObject
       private:
         // TODO: Expalin why this is needed.
         int id;
-        SimpleCache *owner;
+        SimpleCacheObject *owner;
         bool needRetry;
         PacketPtr blockedPacket;
 
       public:
-        CPUSidePort(const std::string& name, int id, SimpleCache *owner) :
+        CPUSidePort(const std::string& name, int id, SimpleCacheObject *owner):
             ResponsePort(name, owner), id(id), owner(owner), needRetry(false),
             blockedPacket(nullptr)
         { }
 
+        bool blocked() { return (blockedPacket != nullptr); }
         void sendPacket(PacketPtr pkt);
         AddrRangeList getAddrRanges() const override;
         void trySendRetry();
@@ -74,14 +75,15 @@ class SimpleCacheObject : public ClockedObject
     class MemSidePort : public RequestPort
     {
       private:
-        SimpleCache *owner;
+        SimpleCacheObject *owner;
         PacketPtr blockedPacket;
 
       public:
-        MemSidePort(const std::string& name, SimpleCache *owner) :
+        MemSidePort(const std::string& name, SimpleCacheObject *owner):
             RequestPort(name, owner), owner(owner), blockedPacket(nullptr)
         { }
 
+        bool blocked() { return (blockedPacket != nullptr); }
         void sendPacket(PacketPtr pkt);
 
       protected:
@@ -90,18 +92,32 @@ class SimpleCacheObject : public ClockedObject
         void recvRangeChange() override;
     };
 
+    class AccessEvent : public Event
+    {
+      private:
+        SimpleCacheObject* cache;
+        PacketPtr pkt;
+      public:
+        AccessEvent(SimpleCacheObject* cache, PacketPtr pkt):
+            Event(Default_Pri, AutoDelete), cache(cache), pkt(pkt)
+        {}
+        void process() override {
+            cache->accessTiming(pkt);
+        }
+    };
+
     bool handleRequest(PacketPtr pkt, int port_id);
     bool handleResponse(PacketPtr pkt);
 
-    // TODO: define void sendResponse(PacketPtr pkt);
+    void sendResponse(PacketPtr pkt);
 
-    // TODO: define void handleFunctional(PacketPtr pkt);
+    void handleFunctional(PacketPtr pkt);
 
-    // TODO: define void accessTiming(PacketPtr pkt);
+    void accessTiming(PacketPtr pkt);
 
-    // TODO: define bool accessFunctional(PacketPtr pkt);
+    bool accessFunctional(PacketPtr pkt);
 
-    // TODO: void insert(PacketPtr pkt);
+    void insert(PacketPtr pkt);
 
     AddrRangeList getAddrRanges() const;
     void sendRangeChange() const;
@@ -116,11 +132,11 @@ class SimpleCacheObject : public ClockedObject
 
     /// Packet that we are currently handling. Used for upgrading to larger
     /// cache line sizes
-    PacketPtr originalPacket;
+    PacketPtr outstandingPacket;
     int waitingPortId;
     Tick missTime;
 
-    // TODO: std::unordered_map<Addr, uint8_t*> cacheStore;
+    std::unordered_map<Addr, uint8_t*> cacheStore;
 
   protected:
     struct SimpleCacheObjectStats : public statistics::Group
