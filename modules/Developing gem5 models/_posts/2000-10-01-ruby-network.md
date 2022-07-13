@@ -1,6 +1,8 @@
 ---
 title: Ruby network and Garnet
 author: Marjan Fariborz
+slides_code: EWUEBBBnXhhDhdlL5abbXtQBlABdmk-T-Op5ws1wvmmavw?e=fKeLd0
+livestream_code: rZ-AYaKBK4M
 ---
 
 - What is Garnet and how is it different from Simple network?
