@@ -25,7 +25,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-Hands-on Session 0: Creating a base system.
+Hands-on Session 1: Modifying the base system.
 -------------------------------------------
 This is a completed renscript file.
 
@@ -124,7 +124,7 @@ memory = DualChannelDDR4_2400(size="2GB")
 # We have a TIMING CPU. 
 
 processor = SimpleProcessor(
-    cpu_type = CPUTypes.CPU,
+    cpu_type = CPUTypes.TIMING,
     isa = ISA.X86,
     num_cores = 1
 )

@@ -1,8 +1,16 @@
 # Ruby/SLICC assignment
 
-Reference: [A Primer on Memory Consistency and Cache Coherence](https://www.gem5.org/_pages/static/external/Sorin_et-al_Excerpt_8.2.pdf).
+Reference: [Excerpt: A Primer on Memory Consistency and Cache Coherence](https://www.gem5.org/_pages/static/external/Sorin_et-al_Excerpt_8.2.pdf).
+Full reference: [A Primer on Memory Consistency and Cache Coherence](https://www.morganclaypool.com/doi/pdf/10.2200/S00962ED2V01Y201910CAC049)
 
 ## Tasks
+
+0. Copy the template
+
+```sh
+mkdir gem5/src/bootcamp
+cp -r materials/developing-gem5-models/09-ruby/MyMSI* materials/developing-gem5-models/09-ruby/SConscript gem5/src/bootcamp
+```
 
 1. Together we will fill in the msg
 

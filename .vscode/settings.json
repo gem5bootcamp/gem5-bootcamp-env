@@ -5,5 +5,8 @@
     "python.formatting.blackArgs": [
         "--line-length",
         "79"
+    ],
+    "editor.rulers": [
+        79
     ]
 }

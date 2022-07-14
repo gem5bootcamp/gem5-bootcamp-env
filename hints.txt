@@ -1,0 +1,4 @@
+docker pull gcr.io/gem5-test/gcn-gpu:v22-0
+
+
+docker run --rm --volume /var/lib/docker/codespacemount/workspace/:/workspaces -w `pwd` gcr.io/gem5-test/gcn-gpu:v22-0

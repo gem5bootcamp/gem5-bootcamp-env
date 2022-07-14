@@ -39,6 +39,7 @@ IMPORTANT: If you modify this file, it's likely that the Learning gem5 book
 import m5
 # import all of the SimObjects
 from m5.objects import *
+# from m5.core import setInterpDir
 
 # create the system we are going to simulate
 system = System()
@@ -87,9 +88,11 @@ isa = str(m5.defines.buildEnv['TARGET_ISA']).lower()
 # Default to running 'hello', use the compiled ISA to find the binary
 # grab the specific path to the binary
 thispath = os.path.dirname(os.path.realpath(__file__))
-# binary = os.path.join(thispath, '../../../',
-#                       'tests/test-progs/hello/bin/', isa, 'linux/hello')
-binary = "/workspaces/gem5-bootcamp-env/out"
+
+binary = "/workspaces/gem5-bootcamp-env/exampleBin"
+
+# setInterpDir("/usr/aarch64-linux-genu/")
+# system.redirect_paths = [RedirectPath(app_path="/lib", host_paths=["/usr/aarch64-linux-genu/lib"])]
 
 system.workload = SEWorkload.init_compatible(binary)
 

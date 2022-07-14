@@ -124,7 +124,7 @@ memory = DualChannelDDR4_2400(size="2GB")
 # We have a TIMING CPU. 
 
 processor = SimpleProcessor(
-    cpu_type = CPUTypes.CPU,
+    cpu_type = CPUTypes.TIMING,
     isa = ISA.X86,
     num_cores = 1
 )
