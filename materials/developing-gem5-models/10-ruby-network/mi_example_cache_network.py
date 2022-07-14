@@ -186,7 +186,8 @@ class MIExampleCacheNetwork(AbstractRubyCacheHierarchy):
                 + self._directory_controllers
                 + self._dma_controllers
             )
-        # self.ruby_system.network.setup_buffers()
+        if (self._network == 'SimplePt2Pt'):
+            self.ruby_system.network.setup_buffers()
 
         # Set up a proxy port for the system_port. Used for load binaries and
         # other functional-only things.
