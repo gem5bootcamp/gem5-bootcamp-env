@@ -29,8 +29,8 @@ import argparse
 import importlib
 from m5.objects import Root
 from gem5.components.boards.test_board import TestBoard
-from gem5.components.cachehierarchies.ruby.mi_example_cache_hierarchy import \
-            MIExampleCacheHierarchy
+from gem5.components.cachehierarchies.ruby.mi_example_cache_network import \
+            MIExampleCacheNetwork
 from gem5.components.processors.linear_generator import LinearGenerator
 from gem5.components.memory import SingleChannelDDR3_1600
 
@@ -56,7 +56,7 @@ parser.add_argument(
 )
 
 def cache_factory():
-    return MIExampleCacheHierarchy(
+    return MIExampleCacheNetwork(
         size="32kB", 
         assoc=8,
         network=args.network_class)
