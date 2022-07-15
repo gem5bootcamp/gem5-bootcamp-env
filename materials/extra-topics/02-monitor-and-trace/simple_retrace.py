@@ -61,7 +61,7 @@ root = Root(full_system = False, system = system)
 
 m5.instantiate()
 
-system.cpu.start(retrace(system.cpu, "mem_trace.trc.gz"))
+system.cpu.start(retrace(system.cpu, "results/simple_comm_trace/mem_trace.gz"))
 
 print("Beginning simulation!")
 exit_event = m5.simulate()

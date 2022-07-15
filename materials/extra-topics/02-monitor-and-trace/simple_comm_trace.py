@@ -53,7 +53,8 @@ if m5.defines.buildEnv['TARGET_ISA'] == "x86":
 
 system.comm_monitor = CommMonitor()
 system.comm_monitor.cpu_side_port = system.membus.mem_side_ports
-system.comm_monitor.trace = MemTraceProbe(trace_file=f"mem_trace.trc")
+system.comm_monitor.trace = MemTraceProbe(trace_file=f"mem_trace",
+                                        trace_compress=True)
 
 system.mem_ctrl = MemCtrl()
 system.mem_ctrl.dram = DDR3_1600_8x8()
