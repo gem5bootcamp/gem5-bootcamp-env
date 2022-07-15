@@ -216,14 +216,14 @@ class RiscvSEBoard(SimpleBoard):
             cache_hierarchy=My2LevelCacheHierarchy(SmallL1(), MyL2Cache()),
         )
 
-benchmark = CustomResource('assignment4-template/for_bootcamp/mm-riscv-gem5')
+benchmark = CustomResource('mm-riscv-gem5')
 
 def run_experiment():
     board = RiscvSEBoard()
 
     board.set_se_binary_workload(benchmark)
     board.processor.get_cores()[0].core.workload[0].cmd = [
-            'assignment4-template/for_bootcamp/mm-riscv-gem5',
+            'mm-riscv-gem5',
             '25',
             1]
 
