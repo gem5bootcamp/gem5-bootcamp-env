@@ -74,7 +74,6 @@ class SmallL1(L1DCache):
 class MyL2Cache(L2Cache):
     def __init__(self):
         super().__init__(size='512KiB', PrefetcherCls = TaggedPrefetcher)
-        self.replacement_policy = RandomRP()
 
 class My2LevelCacheHierarchy(
     AbstractClassicCacheHierarchy, AbstractTwoLevelCacheHierarchy
@@ -152,6 +151,7 @@ class My2LevelCacheHierarchy(
         self.l1icache = L1ICache(size=self._l1i_size)
 
         self.l2bus = L2XBar()
+        self.l2cache.replacement_policy = RandomRP()
 
         cpu = board.get_processor().get_cores()[0]
 
