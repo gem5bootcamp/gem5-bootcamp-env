@@ -15,7 +15,7 @@ COPY --from=gcr.io/gem5-test/gnu-cross-compiler-riscv64:latest /opt/cross-compil
 ENV PATH="/opt/cross-compiler/riscv64-linux/bin:${PATH}"
 
 # Install gdb
-RUN apt install -y gdb
+RUN apt -y update && apt install -y gdb
 
 # Install the Python library dependencies
 # Install black
