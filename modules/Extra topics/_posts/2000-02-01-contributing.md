@@ -1,6 +1,8 @@
 ---
 title: Contributing to gem5
 author: Bobby Bruce
+slides_code: EQLtRAKI94JKjgk5pBmJtG8B3ssv9MaR0a2i92G0TwHK8Q?e=KN3NIppm2kg
+livestream_code: T67wzFd1gVY
 ---
 
 - Write a GTest to test a piece of CPP code

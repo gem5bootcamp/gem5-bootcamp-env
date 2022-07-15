@@ -1,6 +1,8 @@
 ---
 title: Using other simulators with gem
 author: Hoa Nguyen
+slides_code:
+livestream_code: gpDoDTPPkHU
 ---
 
 ## Interfaces for connecting other simulators
