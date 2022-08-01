@@ -52,10 +52,10 @@ class PrivateL1SharedL2CacheHierarchy(AbstractClassicCacheHierarchy):
             self.l1icaches[i].mem_side = self.l2XBar.cpu_side_ports
             self.l1dcaches[i].mem_side = self.l2XBar.cpu_side_ports
 
-            self.l2XBar.mem_side_ports = self.l2cache.cpu_side
+        self.l2XBar.mem_side_ports = self.l2cache.cpu_side
 
-            self.membus.cpu_side_ports = self.l2cache.mem_side
+        self.membus.cpu_side_ports = self.l2cache.mem_side
 
-            int_req_port = self.membus.mem_side_ports
-            int_resp_port = self.membus.cpu_side_ports
-            cpu.connect_interrupt(int_req_port, int_resp_port)
+        int_req_port = self.membus.mem_side_ports
+        int_resp_port = self.membus.cpu_side_ports
+        cpu.connect_interrupt(int_req_port, int_resp_port)
