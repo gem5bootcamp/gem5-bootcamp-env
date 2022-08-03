@@ -3,6 +3,7 @@ title: Using gem5 for full-system simulation
 author: Maryam Babaie
 slides_code: EVmWd7NM8HBGtT6MvMkFyJcBvRhUgzjpPD6PAa_-CIHGMA?e=KEky0H
 livestream_code: dMVrNyYqfMA
+example_code: /materials/using-gem5/08-fullsystem
 ---
 
 ## Things you need for full system

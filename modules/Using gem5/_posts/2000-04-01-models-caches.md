@@ -3,6 +3,7 @@ title: "gem5 models: Caches"
 author: Marjan Fariborz
 slides_code: EapmdHvS1G1IuL-74BFEflQBr8bYAHvqKQncxmmR3aG_qw?e=98lIXQ
 livestream_code: ai2y4xj-fOs
+example_code: /materials/using-gem5/04-cache-models
 ---
 
 ## Classic caches
