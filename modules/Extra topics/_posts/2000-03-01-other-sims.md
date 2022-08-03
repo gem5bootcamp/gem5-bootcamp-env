@@ -1,5 +1,5 @@
 ---
-title: Using other simulators with gem
+title: Using other simulators with gem5
 author: Hoa Nguyen
 slides_code:
 livestream_code: gpDoDTPPkHU
