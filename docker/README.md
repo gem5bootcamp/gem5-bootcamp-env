@@ -1,7 +1,7 @@
 This directory contains the sources for the gcr.io/gem5-test/gem5-tutorial-env Docker image which is used by [.devcontainer/Dockerfile](/.devcontainer/Dockerfile) to build the Docker container used by Codespaces.
 The gcr.io/gem5-test/gem5-tutorial-env Docker image contains:
 
-* All gem5 depenencies (inc. optional dependencies).
+* All gem5 dependencies (inc. optional dependencies).
 * Prebuilt gem5 binaries:
     * `/usr/local/bin/gem5-x86`
     * `/usr/local/bin/gem5-arm`
