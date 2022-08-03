@@ -1,6 +1,7 @@
 ---
 title: "Ruby Cache Part 5: Building, configuring, and running the MSI cache"
 author: Jason Lowe-Power
+example_code: /materials/developing-gem5-models/09-ruby
 ---
 
 ## Building the MSI protocol

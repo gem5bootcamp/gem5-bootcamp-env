@@ -3,6 +3,7 @@ title: Using other simulators with gem5
 author: Hoa Nguyen
 slides_code:
 livestream_code: gpDoDTPPkHU
+example_code: /materials/extra-topics/01-sst-examples
 ---
 
 ## Interfaces for connecting other simulators
