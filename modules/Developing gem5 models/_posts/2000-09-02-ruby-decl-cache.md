@@ -1,6 +1,7 @@
 ---
 title: "Ruby cache part 1: Creating a state machine in SLICC"
 author: Jason Lowe-Power
+example_code: /materials/developing-gem5-models/09-ruby
 ---
 
 Let's start on our first state machine file! First, we will create the

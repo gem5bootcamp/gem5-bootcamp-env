@@ -4,6 +4,7 @@ doc: Learning gem5
 parent: part3
 permalink: documentation/learning_gem5/part3/cache-in-ports/
 author: Jason Lowe-Power
+example_code: /materials/developing-gem5-models/09-ruby
 ---
 
 

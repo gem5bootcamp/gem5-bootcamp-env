@@ -1,6 +1,7 @@
 ---
 title: "Ruby Caches Part 6: Debugging Ruby protocols"
 author: Jason Lowe-Power
+example_code: /materials/developing-gem5-models/09-ruby
 ---
 
 In this section, I present the steps that I took while debugging the MSI

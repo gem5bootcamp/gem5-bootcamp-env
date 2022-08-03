@@ -3,6 +3,7 @@ title: Developing cache coherence protocols in Ruby
 author: "Jason Lowe-Power"
 slides_code: ESPsPGzoI9RAvYHUKjL33UIBvRwoOJAZxole6K-kVZpmjw?e=3JMdJo
 livestream_code: PRCfbvraIl8
+example_code: /materials/developing-gem5-models/09-ruby
 ---
 
 ## Ruby cache coherence model and SLICC language

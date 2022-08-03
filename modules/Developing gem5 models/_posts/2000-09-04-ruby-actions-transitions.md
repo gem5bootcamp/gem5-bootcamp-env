@@ -1,6 +1,7 @@
 ---
 title: "Ruby cache part 3: Actions and transitions in state machines"
 author: Jason Lowe-Power
+example_code: /materials/developing-gem5-models/09-ruby
 ---
 
 
