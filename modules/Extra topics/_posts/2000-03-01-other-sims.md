@@ -1,7 +1,7 @@
 ---
 title: Using other simulators with gem5
 author: Hoa Nguyen
-slides_code:
+slides_code: ERG9ICYR-LNMoEF-ax-iwjoBp2wyOnWAGuGKzq3jeHDDJA?e=nW7xea
 livestream_code: gpDoDTPPkHU
 example_code: /materials/extra-topics/01-sst-examples
 ---
