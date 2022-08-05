@@ -9,6 +9,9 @@ The source code for the Docker image used by [.devcontainer/Dockerfile](.devcont
 v22.0.0.1 of gem5.
 * gem5-resources :
 gem5-resources which may be used with v22.0 of gem5.
+* materials: Example materials used as part of the tutorial.
+* modules: Source for the accompying website: https://gem5bootcamp.github.io/gem5-bootcamp-env
+The website contains links to slides, presentation videos, and notes for the tutorials.
 
 **Note:** 'gem5' and 'gem5-resources' are submodules though the [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json) file specifies that a `git module update --init --recursive` command is executed when the Codespace Docker container is created.
 
