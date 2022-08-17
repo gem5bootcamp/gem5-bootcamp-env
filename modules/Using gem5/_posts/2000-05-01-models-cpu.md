@@ -19,7 +19,7 @@ This tutorial covers following topics:
 
 Following picture provides an overview of the differences among gem5 CPU models:
 
-![Summary of gem5 CPU Models](../../../assets/img/gem5CPUs.png)
+![Summary of gem5 CPU Models](/assets/img/gem5CPUs.png)
 *An overview of the differences among gem5 CPU models.*
 
 ### Memory Access Types in gem5:
@@ -31,7 +31,7 @@ An access request and response happens via separate functions.
 
 - Functional: Kind of a backdoor access to memory. Useful for debugging or whenever access to memory is needed without any impact on the simulated system (e.g., loading binaries into memory for SE mode).
 
-![Atomic and Timing Memory Accesses](../../../assets/img/memTypes.png)
+![Atomic and Timing Memory Accesses](/assets/img/memTypes.png)
 *Difference between the Atomic and Timing memory access mode in gem5.*
 
 ### AtomicSimpleCPU
@@ -50,7 +50,7 @@ It uses Timing memory access mode and provides the ability to model different de
 ### MinorCPU
 
 This is gem5's detailed in-order CPU model.
-By default this CPU models a four stage pipeline (Fetch1, Fetch2, Decode, Execute), however, the delay between the pipeline stages is configurable. 
+By default this CPU models a four stage pipeline (Fetch1, Fetch2, Decode, Execute), however, the delay between the pipeline stages is configurable.
 One noteworthy point is that the real instruction decoding happens at Fetch2 stage of MinorCPU and Decode stage is there mostly for bookkeeping.
 
 ### KvmCPU
@@ -63,7 +63,7 @@ It requires the guest and host ISA to be the same.
 
 This exercise is meant to cover the use of some of the gem5 CPU models to understand their differences.
 
-The location of the material (scripts/code) used for this exercise can be found in this [README](../../../materials/using-gem5/05-cpu-models/README.md).
+The location of the material (scripts/code) used for this exercise can be found in this [README](https://github.com/gem5bootcamp/gem5-bootcamp-env/blob/main/materials/using-gem5/05-cpu-models/README.md).
 You can follow the instructions from the tutorial slides (slide 20-25) to run the experiments to collect data which will be used to understand the differences among gem5 CPU models.
 
 The instructions (referred above) use a benchmark (a modified version of IntMM from llvm test suite) as a test to run with three gem5 CPU models (Atomic, Timing, and O3) with two different cache sizes (a normal cache size of 32KB and a much smaller cache of 1KB).
