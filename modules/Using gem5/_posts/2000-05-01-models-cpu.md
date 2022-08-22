@@ -19,7 +19,7 @@ This tutorial covers following topics:
 
 Following picture provides an overview of the differences among gem5 CPU models:
 
-![Summary of gem5 CPU Models](/assets/img/gem5CPUs.png)
+![Summary of gem5 CPU Models](/gem5-bootcamp-env/assets/img/gem5CPUs.png)
 *An overview of the differences among gem5 CPU models.*
 
 ### Memory Access Types in gem5:
@@ -31,7 +31,7 @@ An access request and response happens via separate functions.
 
 - Functional: Kind of a backdoor access to memory. Useful for debugging or whenever access to memory is needed without any impact on the simulated system (e.g., loading binaries into memory for SE mode).
 
-![Atomic and Timing Memory Accesses](/assets/img/memTypes.png)
+![Atomic and Timing Memory Accesses](/gem5-bootcamp-env/assets/img/memTypes.png)
 *Difference between the Atomic and Timing memory access mode in gem5.*
 
 ### AtomicSimpleCPU
