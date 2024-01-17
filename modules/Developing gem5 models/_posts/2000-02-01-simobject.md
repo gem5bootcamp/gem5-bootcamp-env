@@ -1,7 +1,7 @@
 ---
 title: "Creating a `SimObject`"
 author: ["Jason Lowe-Power", "Mahyar Samani"]
-slides_code: EUq-MeBW7YJKlNOoqk5irdoBoEhpDDlojUDUSEXYWr50Iw?e=cgPEYA
+slides_code: "develop-02-sim-object.pdf"
 livestream_code: OcXA1D4b1RA
 example_code: /materials/developing-gem5-models/02-simobj
 ---

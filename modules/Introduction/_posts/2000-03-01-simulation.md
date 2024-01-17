@@ -1,7 +1,7 @@
 ---
 title: Computer Architecture Simulation
 author: Jason Lowe-Power
-slides_code: EQzh7f8i3NNPv9nIfib9JX4BlHCsqIPDfFBtfuUgOThbTA?e=vZteRN
+slides_code: "intro-03-simulation-jason.pdf"
 livestream_code: i7ipNe0JGYg
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Developing cache coherence protocols in Ruby
 author: "Jason Lowe-Power"
-slides_code: ESPsPGzoI9RAvYHUKjL33UIBvRwoOJAZxole6K-kVZpmjw?e=3JMdJo
+slides_code: "develop-09-ruby.pdf"
 livestream_code: PRCfbvraIl8
 example_code: /materials/developing-gem5-models/09-ruby
 ---

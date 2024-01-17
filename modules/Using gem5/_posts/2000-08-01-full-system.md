@@ -1,7 +1,7 @@
 ---
 title: Using gem5 for full-system simulation
 author: Maryam Babaie
-slides_code: EVmWd7NM8HBGtT6MvMkFyJcBvRhUgzjpPD6PAa_-CIHGMA?e=KEky0H
+slides_code: "using-gem5-08-gem5-fullsystem-tutorial.pdf"
 livestream_code: dMVrNyYqfMA
 example_code: /materials/using-gem5/08-fullsystem
 ---

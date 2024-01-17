@@ -1,7 +1,7 @@
 ---
 title: "Instruction execution in gem5"
 author: Ayaz Akram
-slides_code: EeRIKzkdUJBDlaa9AmzERusBrFOKD1P6Egaxvrhhmn47Mw?e=Ziwx67
+slides_code: "develop-06-cpu-instructions.pdf"
 livestream_code: Z5B02jkNpck
 example_code: /materials/developing-gem5-models/06-cpu-instructions
 ---

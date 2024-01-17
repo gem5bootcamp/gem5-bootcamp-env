@@ -1,7 +1,7 @@
 ---
 title: "Adding instructions to gem5"
 author: Ayaz Akram
-slides_code: EeRIKzkdUJBDlaa9AmzERusBp28hxMfkyIOp-_2H5L9AqQ?e=RoMFUD
+slides_code: "develop-06-cpu-instructions.pdf"
 livestream_code: Z5B02jkNpck
 example_code: /materials/developing-gem5-models/06-cpu-instructions
 ---

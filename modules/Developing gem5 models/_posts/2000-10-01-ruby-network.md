@@ -1,7 +1,7 @@
 ---
 title: Ruby network and Garnet
 author: Marjan Fariborz
-slides_code: EWUEBBBnXhhDhdlL5abbXtQBlABdmk-T-Op5ws1wvmmavw?e=fKeLd0
+slides_code: "develop-10-ruby-network.pdf"
 livestream_code: rZ-AYaKBK4M
 example_code: /materials/developing-gem5-models/10-ruby-network
 ---

@@ -1,7 +1,7 @@
 ---
 title: Extra Topics
 author: ["Kaustav Goswami", "Maryam Babaie", "Hoa Nguyen"]
-slides_code: EeaTGRse5mdAq-5Z7xW6XHUBfJmGifqhF9dosbWZZEBtYA?e=i21MbM
+slides_code: "extra-KVM-with-m5-and-Memory-System.pdf"
 livestream_code: hciJ9rguats
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Contributing to gem5
 author: Bobby Bruce
-slides_code: EQLtRAKI94JKjgk5pBmJtG8B3ssv9MaR0a2i92G0TwHK8Q?e=KN3NIppm2kg
+slides_code: "extra-02-contributing.pdf"
 livestream_code: T67wzFd1gVY
 ---
 

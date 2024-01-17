@@ -17,7 +17,7 @@ layout: base
 				{% else %} <iframe width="625" height="376" src="https://www.youtube.com/embed/{{ page.livestream_code }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				{% endif %}
 				{% if page.slides_code == null %} <div> </div>
-				{% else %} <div class="slides-link"> <span> View the slides </span> <a href="https://ucdavis365-my.sharepoint.com/:p:/g/personal/jlowepower_ucdavis_edu/{{ page.slides_code }}&action=embedview&wdbipreview=true"> here</a><span>.</span> <p></p>
+				{% else %} <div class="slides-link"> <span> View the slides </span> <a href="/gem5-bootcamp-env/assets/slides/{{ page.slides_code }}"> here</a><span>.</span> <p></p>
 				</div>
 				{% endif %}
 				{{ content }}
