@@ -1,5 +1,6 @@
 # Ignore all m5out directories and build directories
 **/m5out/
+**/checkpoint/
 
 # Jekyll stuff
 _site/
@@ -12,3 +13,13 @@ typings/
 .vscode/*.log
 
 __pycache__
+
+# Ignore downloaded files
+square
+vmlinux-gpu-ml-isca
+x86-ubuntu-gpu-ml-isca
+x86-ubuntu-gpu-ml-isca.gz
+
+# Ignore slides
+*.pdf
+*.html

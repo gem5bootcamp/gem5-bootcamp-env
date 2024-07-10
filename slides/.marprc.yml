@@ -1,0 +1,4 @@
+# .marprc.yml
+allowLocalFiles: true
+pdf: true
+themeSet: "themes/"

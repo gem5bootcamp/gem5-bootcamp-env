@@ -1,12 +1,17 @@
 {
-    "python.formatting.provider": "black",
-    "python.analysis.stubPath": "typings",
     "python.analysis.extraPaths": ["gem5/src/python"],
-    "python.formatting.blackArgs": [
-        "--line-length",
-        "79"
-    ],
     "editor.rulers": [
         79
-    ]
+    ],
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "markdown.marp.themes": [
+        "slides/themes/gem5.css"
+    ],
+    "markdown.marp.enableHtml": true,
+    "hediet.vscode-drawio.globalVars": {
+         "pageScale": "1",
+         "pageWidth": "1160",
+         "pageHeight": "440"
+    }
 }
